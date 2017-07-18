@@ -1,0 +1,12 @@
+<platform xmlns="http://ns.adobe.com/air/extension/4.0">
+	<copyright>2015 // distriqt</copyright>
+	<sdkVersion>1.0.0</sdkVersion>
+	<linkerOptions>
+		<option>-ios_version_min 6.0</option>
+		<option>-w</option>
+		<option>-framework AdSupport</option>
+	</linkerOptions>
+	<packagedDependencies>
+		<packagedDependency>CoreNativeExtension.framework</packagedDependency>
+	</packagedDependencies>
+</platform>

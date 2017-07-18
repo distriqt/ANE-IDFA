@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/platform/actionscript/actionscript.iml" filepath="$PROJECT_DIR$/platform/actionscript/actionscript.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platform/default/default.iml" filepath="$PROJECT_DIR$/platform/default/default.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/simple/simple.iml" filepath="$PROJECT_DIR$/example/simple/simple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/starling/starling.iml" filepath="$PROJECT_DIR$/example/starling/starling.iml" />
+    </modules>
+  </component>
+</project>
