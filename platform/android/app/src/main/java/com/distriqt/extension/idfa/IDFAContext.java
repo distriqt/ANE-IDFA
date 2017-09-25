@@ -30,6 +30,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.distriqt.core.utils.IExtensionContext;
 import com.distriqt.extension.idfa.controller.IDFAController;
+import com.distriqt.extension.idfa.functions.AdvertisingTrackingEnabledFunction;
 import com.distriqt.extension.idfa.functions.GetIDFAFunction;
 import com.distriqt.extension.idfa.functions.ImplementationFunction;
 import com.distriqt.extension.idfa.functions.IsSupportedFunction;
@@ -92,7 +93,8 @@ public class IDFAContext extends FREContext implements IExtensionContext, Activi
 		functionMap.put( "version",   		new VersionFunction() );
 		functionMap.put( "implementation", 	new ImplementationFunction() );
 
-		functionMap.put( "getIDFA", 		new GetIDFAFunction() );
+		functionMap.put( "getIDFA", 					new GetIDFAFunction() );
+		functionMap.put( "advertisingTrackingEnabled", 	new AdvertisingTrackingEnabledFunction() );
 
 		return functionMap;
 	}

@@ -7,6 +7,5 @@
 		<option>-framework AdSupport</option>
 	</linkerOptions>
 	<packagedDependencies>
-		<packagedDependency>CoreNativeExtension.framework</packagedDependency>
 	</packagedDependencies>
 </platform>

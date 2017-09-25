@@ -126,6 +126,14 @@ public class IDFAController
 	}
 
 
+	public boolean advertisingTrackingEnabled()
+	{
+		LogUtil.d( IDFAExtension.ID, TAG, "advertisingTrackingEnabled()" );
+		return true;
+	}
+
+
+
 
 	private void showErrorDialog(int errorCode)
 	{

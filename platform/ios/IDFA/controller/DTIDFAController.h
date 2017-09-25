@@ -17,4 +17,6 @@
 
 -(void) getIDFA;
 
+-(Boolean) advertisingTrackingEnabled;
+
 @end

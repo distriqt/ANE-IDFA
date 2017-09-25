@@ -34,5 +34,12 @@
 }
 
 
+-(Boolean) advertisingTrackingEnabled
+{
+    [DTFREUtils log: DTIDFA_TAG message: @"DTIDFAController::advertisingTrackingEnabled"];
+    return [[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled] == YES;
+}
+
+
 
 @end

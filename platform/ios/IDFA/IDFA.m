@@ -86,6 +86,16 @@ FREObject IDFA_getIDFA(FREContext ctx, void* funcData, uint32_t argc, FREObject 
     return result;
 }
 
+FREObject IDFA_advertisingTrackingEnabled(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
+{
+    FREObject result = NULL;
+    @autoreleasepool
+    {
+        Boolean advertisingTrackingEnabled = [distriqt_idfa_controller advertisingTrackingEnabled];
+        result = [DTFREUtils newFREObjectFromBoolean: advertisingTrackingEnabled];
+    }
+    return result;
+}
 
 
 ////////////////////////////////////////////////////////
@@ -104,7 +114,11 @@ void IDFAContextInitializer(void* extData, const uint8_t* ctxType, FREContext ct
         MAP_FUNCTION( IDFAImplementation,   "implementation",   NULL ),
         MAP_FUNCTION( IDFAIsSupported,      "isSupported",      NULL ),
         
-        MAP_FUNCTION( IDFA_getIDFA,         "getIDFA",          NULL )
+        MAP_FUNCTION( IDFA_getIDFA,         "getIDFA",          NULL ),
+        
+        MAP_FUNCTION( IDFA_advertisingTrackingEnabled, "advertisingTrackingEnabled", NULL ),
+        
+        
         
     };
     

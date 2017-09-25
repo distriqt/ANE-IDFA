@@ -234,7 +234,19 @@ package com.distriqt.extension.idfa
 		//
 		
 		/**
+		 * <p>
+		 * An alphanumeric string unique to each device, used only for serving advertisements.
+		 * </p>
 		 *
+		 * <p>
+		 * This identifier may change—for example, if the user erases the device—so you should not cache it.
+		 * </p>
+		 *
+		 * <p>
+		 * <strong>Important</strong>
+		 * In iOS 10.0 and later, the value of this is all zeroes when the user has limited ad tracking
+		 * (<code>00000000-0000-0000-0000-000000000000</code>).
+		 * </p>
 		 */
 		public function getIDFA():void
 		{
@@ -245,6 +257,31 @@ package com.distriqt.extension.idfa
 			catch (e:Error)
 			{
 			}
+		}
+		
+		
+		/**
+		 * <p>
+		 * A Boolean value that indicates whether the user has limited ad tracking.
+		 * </p>
+		 *
+		 * <p>
+		 * Check the value of this property before performing any advertising tracking.
+		 * If the value is NO, use the advertising identifier only for the following
+		 * purposes: frequency capping, attribution, conversion events, estimating
+		 * the number of unique users, advertising fraud detection, and debugging.
+		 * </p>
+		 */
+		public function get advertisingTrackingEnabled():Boolean
+		{
+			try
+			{
+				return _extContext.call( "advertisingTrackingEnabled" ) as Boolean;
+			}
+			catch (e:Error)
+			{
+			}
+			return false;
 		}
 		
 		

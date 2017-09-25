@@ -141,9 +141,20 @@ package com.distriqt.extension.idfa
 		}
 		
 		
+		
+		
+		
 		public function getIDFA():void
 		{
 		}
+		
+		
+		public function get advertisingTrackingEnabled():Boolean
+		{
+			return false;
+		}
+		
+		
 		
 		
 		////////////////////////////////////////////////////////
