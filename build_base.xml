@@ -580,17 +580,17 @@ _site
 
 
 
-		<!-- Clone the site idfa -->
+		<!-- Clone the site template -->
 		<exec executable="git" >
 			<arg value="clone" />
-			<arg value="https://gitlab.com/airnativeextensions/github-pages-idfa.git" />
+			<arg value="https://gitlab.com/airnativeextensions/github-pages-template.git" />
 			<arg value="_tmpclone" />
 		</exec>
 		<copy todir="docs/site" overwrite="true" >
 			<fileset dir="_tmpclone" />
 			<filterchain>
 				<tokenfilter>
-					<replacestring from="IDFA" to="${project.name}"/>
+					<replacestring from="Template" to="${project.name}"/>
 				</tokenfilter>
 			</filterchain>
 		</copy>
