@@ -5,13 +5,13 @@
 Setup the Extension
 
 1. [[Add the Extension|i.Add the Extension]]
-2. [[Initialise the Extension|i.Initialise the Extension]]
 
 
 --- 
 
 Usage
 
+1. [[Get Advertising Identifier|u.Get Advertising Identifier]]
 
 
 ---
