@@ -77,6 +77,7 @@ package com.distriqt.test.idfa
 		private function idfaCompleteHandler( event:IDFAEvent ):void
 		{
 			log( "identifier: " + event.identifier );
+			log( "isLimitAdTrackingEnabled: " + event.isLimitAdTrackingEnabled );
 		}
 	    
 	    
