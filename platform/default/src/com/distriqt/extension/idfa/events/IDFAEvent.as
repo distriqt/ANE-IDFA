@@ -42,25 +42,60 @@ package com.distriqt.extension.idfa.events
  		////////////////////////////////////////////////////////
         //  VARIABLES
         //
-        
-		public var identifier : String;
-
+	
+		/**
+		 * <p>
+		 * The advertising identifier
+		 * </p>
+		 *
+		 * <p>
+		 * An alphanumeric string unique to each device, used only for serving advertisements.
+		 * </p>
+		 *
+		 * <p>
+		 * Note: when ad tracking is limited, the value of the advertising identifier may be <code>00000000-0000-0000-0000-000000000000</code>.
+		 * </p>
+		 */
+		public var identifier	: String = "";
+	
+	
+		/**
+		 * <p>
+		 * A Boolean value that indicates whether the user has limited ad tracking.
+		 * </p>
+		 * <p>
+		 * If this value is <code>true</code> then the identifier should only be used
+		 * for limited ad tracking reasons, for example: frequency capping, attribution,
+		 * conversion events, estimating the number of unique users, advertising fraud detection, and debugging.
+		 * </p>
+		 *
+		 * <p>
+		 * See:
+		 * <ul>
+		 *     <li>Android: https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/AdvertisingIdClient.Info</li>
+		 *     <li>iOS: https://developer.apple.com/documentation/adsupport/asidentifiermanager</li>
+		 * </ul>
+		 * </p>
+		 */
+		public var isLimitAdTrackingEnabled : Boolean = false;
+		
 		
 		
  		////////////////////////////////////////////////////////
         //  FUNCTIONALITY
         //
         
-        public function IDFAEvent( type:String, identifier:String, bubbles:Boolean =false, cancelable:Boolean =false)
+        public function IDFAEvent( type:String, identifier:String, isLimitAdTrackingEnabled:Boolean, bubbles:Boolean =false, cancelable:Boolean =false)
         {
 	        super(type,bubbles,cancelable);
 	        this.identifier = identifier;
+			this.isLimitAdTrackingEnabled = isLimitAdTrackingEnabled;
         }
         
 		
 		override public function clone():Event
 		{
-			return new IDFAEvent( type, identifier, bubbles, cancelable );
+			return new IDFAEvent( type, identifier, isLimitAdTrackingEnabled, bubbles, cancelable );
 		}
 
 		

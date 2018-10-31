@@ -24,13 +24,14 @@ public class IDFAEvent
 	public static final String ERROR = "idfa:error";
 
 
-	public static String formatForEvent( String identifier )
+	public static String formatForEvent( String identifier, boolean isLimitAdTrackingEnabled )
 	{
 		try
 		{
 			JSONObject event = new JSONObject();
 
 			event.put( "identifier", identifier );
+			event.put( "isLimitAdTrackingEnabled", isLimitAdTrackingEnabled );
 
 			return event.toString();
 		}

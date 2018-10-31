@@ -14,6 +14,6 @@
 
 @interface DTIDFAEvent : NSObject
 
-+(NSString*) formatForEvent: (NSString*) identifier;
++(NSString*) formatForEvent: (NSString*) identifier isLimitAdTrackingEnabled:(Boolean)isLimitAdTrackingEnabled;
 
 @end

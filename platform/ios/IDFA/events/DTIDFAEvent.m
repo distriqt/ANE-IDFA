@@ -10,14 +10,15 @@
 
 @implementation DTIDFAEvent
 
-+(NSString*) formatForEvent: (NSString*) identifier
++(NSString*) formatForEvent: (NSString*) identifier isLimitAdTrackingEnabled:(Boolean)isLimitAdTrackingEnabled
 {
     @try
     {
         NSMutableDictionary* eventDict = [[NSMutableDictionary alloc] init];
         
         [eventDict setObject: identifier forKey: @"identifier"];
-        
+		[eventDict setObject: [NSNumber numberWithBool: isLimitAdTrackingEnabled] forKey: @"isLimitAdTrackingEnabled" ];
+		
         NSData* jsonData = [NSJSONSerialization dataWithJSONObject: eventDict options: 0 error: nil];
         return [[NSString alloc] initWithData: jsonData encoding:NSUTF8StringEncoding];
     }

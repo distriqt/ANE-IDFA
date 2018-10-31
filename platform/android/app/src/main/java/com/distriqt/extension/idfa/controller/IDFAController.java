@@ -46,6 +46,7 @@ public class IDFAController
 
 	private IExtensionContext _extContext;
 
+	private AdvertisingIdClient.Info _advertisingInfo;
 
 
 	////////////////////////////////////////////////////////
@@ -95,10 +96,13 @@ public class IDFAController
 				{
 					try
 					{
-						AdvertisingIdClient.Info adInfo = AdvertisingIdClient.getAdvertisingIdInfo( context );
+						_advertisingInfo = AdvertisingIdClient.getAdvertisingIdInfo( context );
 						_extContext.dispatchEvent(
 								IDFAEvent.COMPLETE,
-								IDFAEvent.formatForEvent( adInfo.getId() )
+								IDFAEvent.formatForEvent(
+										_advertisingInfo.getId(),
+										_advertisingInfo.isLimitAdTrackingEnabled()
+								)
 						);
 					}
 					catch (GooglePlayServicesRepairableException e)
@@ -114,6 +118,7 @@ public class IDFAController
 					catch (Exception e)
 					{
 						FREUtils.handleException( e );
+						_extContext.dispatchEvent( IDFAEvent.ERROR, "" );
 					}
 				}
 			}).start();
@@ -129,7 +134,15 @@ public class IDFAController
 	public boolean advertisingTrackingEnabled()
 	{
 		LogUtil.d( IDFAExtension.ID, TAG, "advertisingTrackingEnabled()" );
-		return true;
+		if (_advertisingInfo != null)
+		{
+			return !_advertisingInfo.isLimitAdTrackingEnabled();
+		}
+		else
+		{
+			getIDFA();
+		}
+		return false;
 	}
 
 
@@ -149,7 +162,11 @@ public class IDFAController
 		if (GooglePlayServicesUtil.isUserRecoverableError( errorCode ))
 		{
 			LogUtil.d( IDFAExtension.ID, TAG, "UserRecoverableError" );
-			GooglePlayServicesUtil.getErrorDialog( errorCode, _extContext.getActivity(), PLAY_SERVICES_RESOLUTION_REQUEST ).show();
+			GooglePlayServicesUtil.getErrorDialog(
+					errorCode,
+					_extContext.getActivity(),
+					PLAY_SERVICES_RESOLUTION_REQUEST
+			).show();
 		}
 	}
 

@@ -271,7 +271,14 @@ package com.distriqt.extension.idfa
 		 * purposes: frequency capping, attribution, conversion events, estimating
 		 * the number of unique users, advertising fraud detection, and debugging.
 		 * </p>
+		 *
+		 * <p>
+		 * <strong>NOTE</strong>: This value will be invalid immediately after initialisation.
+		 * To ensure you have the should call <code>getIDFA</code> and use the <code>isLimitAdTrackingEnabled</code>
+		 * property on the <code>IDFAEvent.COMPLETE</code> event.
+		 * </p>
 		 */
+		[Deprecated(message="Use the isLimitAdTrackingEnabled property on the IDFAEvent")]
 		public function get advertisingTrackingEnabled():Boolean
 		{
 			try
@@ -312,14 +319,14 @@ package com.distriqt.extension.idfa
 					case IDFAEvent.COMPLETE:
 					{
 						data = JSON.parse(event.level);
-						dispatchEvent( new IDFAEvent( event.code, data.identifier ));
+						dispatchEvent( new IDFAEvent( event.code, data.identifier, data.isLimitAdTrackingEnabled ));
 						break;
 					}
 					
 					case IDFAEvent.ERROR:
 					{
 						data = JSON.parse(event.level);
-						dispatchEvent( new IDFAEvent( event.code, null ));
+						dispatchEvent( new IDFAEvent( event.code, null, false ));
 						break;
 					}
 				}

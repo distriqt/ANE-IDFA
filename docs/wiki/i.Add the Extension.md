@@ -63,6 +63,25 @@ You can access the Google Play Services client library extensions here:
 
 
 
+
+## Extension IDs
+
+The following should be added to your `extensions` node in your application descriptor to identify all the required ANEs in your application:
+
+```xml
+<extensions>
+    <extensionID>com.distriqt.IDFA</extensionID>
+    <extensionID>com.distriqt.Core</extensionID>
+    <extensionID>com.distriqt.androidsupport.V4</extensionID>
+    <extensionID>com.distriqt.playservices.Base</extensionID>
+    <extensionID>com.distriqt.playservices.Ads</extensionID>
+</extensions>
+```
+
+
+
+
+
 ## Android Manifest Additions 
 
 You need to make sure you add the `android.permission.INTERNET` permission and the 
@@ -79,5 +98,20 @@ You need to make sure you add the `android.permission.INTERNET` permission and t
 
     </application>
 </manifest>
+```
+
+
+## Checking for Support
+
+You can use the `isSupported` flag to determine if this extension is supported on the current platform and device.
+
+This allows you to react to whether the functionality is available on the device and provide an alternative solution if not.
+
+
+```as3
+if (IDFA.isSupported)
+{
+	// Functionality here
+}
 ```
 

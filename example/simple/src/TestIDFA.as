@@ -108,6 +108,7 @@ package
 		private function idfaCompleteHandler( event:IDFAEvent ):void
 		{
 			message( "identifier: " + event.identifier );
+			message( "isLimitAdTrackingEnabled: " + event.isLimitAdTrackingEnabled );
 		}
 
 		
