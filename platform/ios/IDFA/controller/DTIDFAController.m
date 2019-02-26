@@ -27,9 +27,9 @@
         NSString* idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 		Boolean isLimitAdTrackingEnabled = ![[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled];
     
-        [delegate dispatch: DTIDFA_IDFAEVENT_COMPLETE
-                      data: [DTIDFAEvent formatForEvent: idfa
-							   isLimitAdTrackingEnabled: isLimitAdTrackingEnabled]
+        [self.delegate dispatch: DTIDFA_IDFAEVENT_COMPLETE
+                      	data: [DTIDFAEvent formatForEvent: idfa
+								 isLimitAdTrackingEnabled: isLimitAdTrackingEnabled]
         ];
     });
     
