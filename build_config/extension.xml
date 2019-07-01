@@ -9,6 +9,13 @@
 				<finalizer>com.distriqt.extension.idfa.IDFAExtension</finalizer>
 			</applicationDeployment>
 		</platform>
+		<platform name="Android-ARM64">
+			<applicationDeployment>
+				<nativeLibrary>distriqt.extension.idfa.android.jar</nativeLibrary>
+				<initializer>com.distriqt.extension.idfa.IDFAExtension</initializer>
+				<finalizer>com.distriqt.extension.idfa.IDFAExtension</finalizer>
+			</applicationDeployment>
+		</platform>
 		<platform name="Android-x86">
 			<applicationDeployment>
 				<nativeLibrary>distriqt.extension.idfa.android.jar</nativeLibrary>

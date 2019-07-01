@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70b6636e-0aee-49db-94d0-8ff091829999" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/flexCompiler.xml" afterPath="$PROJECT_DIR$/.idea/flexCompiler.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/platform/android/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/build/com.distriqt.IDFA.ane" afterPath="$PROJECT_DIR$/build/com.distriqt.IDFA.ane" />
       <change beforePath="$PROJECT_DIR$/build_base.xml" afterPath="$PROJECT_DIR$/build_base.xml" />
-      <change beforePath="$PROJECT_DIR$/build_config/global.config" afterPath="$PROJECT_DIR$/build_config/global.config" />
+      <change beforePath="$PROJECT_DIR$/build_config/extension.xml" afterPath="$PROJECT_DIR$/build_config/extension.xml" />
       <change beforePath="$PROJECT_DIR$/build_config/version.config" afterPath="$PROJECT_DIR$/build_config/version.config" />
+      <change beforePath="$PROJECT_DIR$/docs/asdocs/AC_OETags.js" afterPath="$PROJECT_DIR$/docs/asdocs/AC_OETags.js" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/all-classes.html" afterPath="$PROJECT_DIR$/docs/asdocs/all-classes.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/all-index-A.html" afterPath="$PROJECT_DIR$/docs/asdocs/all-index-A.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/all-index-B.html" afterPath="$PROJECT_DIR$/docs/asdocs/all-index-B.html" />
@@ -35,6 +37,7 @@
       <change beforePath="$PROJECT_DIR$/docs/asdocs/all-index-X.html" afterPath="$PROJECT_DIR$/docs/asdocs/all-index-X.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/all-index-Y.html" afterPath="$PROJECT_DIR$/docs/asdocs/all-index-Y.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/all-index-Z.html" afterPath="$PROJECT_DIR$/docs/asdocs/all-index-Z.html" />
+      <change beforePath="$PROJECT_DIR$/docs/asdocs/asdoc.js" afterPath="$PROJECT_DIR$/docs/asdocs/asdoc.js" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/class-summary.html" afterPath="$PROJECT_DIR$/docs/asdocs/class-summary.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/com/distriqt/extension/idfa/IDFA.html" afterPath="$PROJECT_DIR$/docs/asdocs/com/distriqt/extension/idfa/IDFA.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/com/distriqt/extension/idfa/class-list.html" afterPath="$PROJECT_DIR$/docs/asdocs/com/distriqt/extension/idfa/class-list.html" />
@@ -42,46 +45,34 @@
       <change beforePath="$PROJECT_DIR$/docs/asdocs/com/distriqt/extension/idfa/events/class-list.html" afterPath="$PROJECT_DIR$/docs/asdocs/com/distriqt/extension/idfa/events/class-list.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/com/distriqt/extension/idfa/events/package-detail.html" afterPath="$PROJECT_DIR$/docs/asdocs/com/distriqt/extension/idfa/events/package-detail.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/com/distriqt/extension/idfa/package-detail.html" afterPath="$PROJECT_DIR$/docs/asdocs/com/distriqt/extension/idfa/package-detail.html" />
+      <change beforePath="$PROJECT_DIR$/docs/asdocs/cookies.js" afterPath="$PROJECT_DIR$/docs/asdocs/cookies.js" />
+      <change beforePath="$PROJECT_DIR$/docs/asdocs/help.js" afterPath="$PROJECT_DIR$/docs/asdocs/help.js" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/index-list.html" afterPath="$PROJECT_DIR$/docs/asdocs/index-list.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/index.html" afterPath="$PROJECT_DIR$/docs/asdocs/index.html" />
+      <change beforePath="$PROJECT_DIR$/docs/asdocs/override.css" afterPath="$PROJECT_DIR$/docs/asdocs/override.css" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/package-frame.html" afterPath="$PROJECT_DIR$/docs/asdocs/package-frame.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/package-list.html" afterPath="$PROJECT_DIR$/docs/asdocs/package-list.html" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/package-summary.html" afterPath="$PROJECT_DIR$/docs/asdocs/package-summary.html" />
+      <change beforePath="$PROJECT_DIR$/docs/asdocs/print.css" afterPath="$PROJECT_DIR$/docs/asdocs/print.css" />
+      <change beforePath="$PROJECT_DIR$/docs/asdocs/style.css" afterPath="$PROJECT_DIR$/docs/asdocs/style.css" />
       <change beforePath="$PROJECT_DIR$/docs/asdocs/title-bar.html" afterPath="$PROJECT_DIR$/docs/asdocs/title-bar.html" />
       <change beforePath="$PROJECT_DIR$/docs/wiki/i.Add the Extension.md" afterPath="$PROJECT_DIR$/docs/wiki/i.Add the Extension.md" />
-      <change beforePath="$PROJECT_DIR$/example/simple/src/TestIDFA.as" afterPath="$PROJECT_DIR$/example/simple/src/TestIDFA.as" />
+      <change beforePath="$PROJECT_DIR$/example/starling/src/Config.as" afterPath="$PROJECT_DIR$/example/starling/src/Config.as" />
+      <change beforePath="$PROJECT_DIR$/example/starling/src/TestIDFA-app.xml" afterPath="$PROJECT_DIR$/example/starling/src/TestIDFA-app.xml" />
       <change beforePath="$PROJECT_DIR$/example/starling/src/com/distriqt/test/idfa/IDFATests.as" afterPath="$PROJECT_DIR$/example/starling/src/com/distriqt/test/idfa/IDFATests.as" />
+      <change beforePath="$PROJECT_DIR$/example/starling/starling.iml" afterPath="$PROJECT_DIR$/example/starling/starling.iml" />
       <change beforePath="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/IDFA.as" afterPath="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/IDFA.as" />
       <change beforePath="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/Version.as" afterPath="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/Version.as" />
-      <change beforePath="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/events/IDFAEvent.as" afterPath="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/events/IDFAEvent.as" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/platform/android/.gradle/2.14.1/tasks/_app_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change beforePath="$PROJECT_DIR$/platform/android/.gitignore" afterPath="$PROJECT_DIR$/platform/android/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/platform/android/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/platform/android/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/platform/android/.idea/misc.xml" afterPath="$PROJECT_DIR$/platform/android/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/platform/android/.idea/workspace.xml" afterPath="$PROJECT_DIR$/platform/android/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/platform/android/android.iml" afterPath="$PROJECT_DIR$/platform/android/android.iml" />
       <change beforePath="$PROJECT_DIR$/platform/android/app/app.iml" afterPath="$PROJECT_DIR$/platform/android/app/app.iml" />
+      <change beforePath="$PROJECT_DIR$/platform/android/app/build.gradle" afterPath="$PROJECT_DIR$/platform/android/app/build.gradle" />
       <change beforePath="$PROJECT_DIR$/platform/android/app/src/main/java/com/distriqt/extension/idfa/controller/IDFAController.java" afterPath="$PROJECT_DIR$/platform/android/app/src/main/java/com/distriqt/extension/idfa/controller/IDFAController.java" />
-      <change beforePath="$PROJECT_DIR$/platform/android/app/src/main/java/com/distriqt/extension/idfa/events/IDFAEvent.java" afterPath="$PROJECT_DIR$/platform/android/app/src/main/java/com/distriqt/extension/idfa/events/IDFAEvent.java" />
-      <change beforePath="$PROJECT_DIR$/platform/android/local.properties" afterPath="$PROJECT_DIR$/platform/android/local.properties" />
-      <change beforePath="$PROJECT_DIR$/platform/default/includes/ExtensionBaseDefault.as" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/platform/default/includes/ExtensionBaseDefaultNoVerification.as" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/IDFA.as" afterPath="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/IDFA.as" />
       <change beforePath="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/Version.as" afterPath="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/Version.as" />
-      <change beforePath="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/events/IDFAEvent.as" afterPath="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/events/IDFAEvent.as" />
       <change beforePath="$PROJECT_DIR$/platform/ios/IDFA.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/platform/ios/IDFA.xcodeproj/project.pbxproj" />
-      <change beforePath="$PROJECT_DIR$/platform/ios/IDFA/controller/DTIDFAController.m" afterPath="$PROJECT_DIR$/platform/ios/IDFA/controller/DTIDFAController.m" />
-      <change beforePath="$PROJECT_DIR$/platform/ios/IDFA/events/DTIDFAEvent.h" afterPath="$PROJECT_DIR$/platform/ios/IDFA/events/DTIDFAEvent.h" />
-      <change beforePath="$PROJECT_DIR$/platform/ios/IDFA/events/DTIDFAEvent.m" afterPath="$PROJECT_DIR$/platform/ios/IDFA/events/DTIDFAEvent.m" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -100,78 +91,7 @@
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IDFA.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/IDFA.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3411">
-              <caret line="227" column="8" lean-forward="false" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestIDFA.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/simple/src/TestIDFA.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="926">
-              <caret line="110" column="46" lean-forward="false" selection-start-line="110" selection-start-column="46" selection-end-line="110" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IDFAEvent.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/events/IDFAEvent.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IDFATests.as" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/starling/src/com/distriqt/test/idfa/IDFATests.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="92" column="13" lean-forward="false" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Config.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/starling/src/Config.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestIDFA-app.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/starling/src/TestIDFA-app.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" column="98" lean-forward="false" selection-start-line="8" selection-start-column="98" selection-end-line="8" selection-end-column="98" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestIDFA.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/starling/src/TestIDFA.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1216">
-              <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -198,7 +118,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/example/starling/starling.iml" />
-        <option value="$PROJECT_DIR$/example/starling/src/Config.as" />
         <option value="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/mediaplayer/events/MediaErrorEvent.as" />
         <option value="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/mediaplayer/events/MediaThumbnailEvent.as" />
         <option value="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/mediaplayer/MediaUtils.as" />
@@ -218,14 +137,15 @@
         <option value="$PROJECT_DIR$/example/starling/src/com/distriqt/test/idfa/ILogger.as" />
         <option value="$PROJECT_DIR$/example/starling/src/TestIDFA.as" />
         <option value="$PROJECT_DIR$/example/simple/src/TestIDFA-app.xml" />
-        <option value="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/IDFA.as" />
         <option value="$PROJECT_DIR$/example/starling/src/com/distriqt/test/idfa/Main.as" />
-        <option value="$PROJECT_DIR$/example/starling/src/TestIDFA-app.xml" />
         <option value="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/events/IDFAEvent.as" />
-        <option value="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/IDFA.as" />
         <option value="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/events/IDFAEvent.as" />
         <option value="$PROJECT_DIR$/example/simple/src/TestIDFA.as" />
+        <option value="$PROJECT_DIR$/example/starling/src/TestIDFA-app.xml" />
+        <option value="$PROJECT_DIR$/example/starling/src/Config.as" />
         <option value="$PROJECT_DIR$/example/starling/src/com/distriqt/test/idfa/IDFATests.as" />
+        <option value="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/IDFA.as" />
+        <option value="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/IDFA.as" />
       </list>
     </option>
   </component>
@@ -259,9 +179,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -289,42 +209,12 @@
             </path>
             <path>
               <item name="com.distriqt.IDFA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="com.distriqt.IDFA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="com.distriqt.IDFA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="idfa" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="com.distriqt.IDFA" type="b2602c69:ProjectViewProjectNode" />
               <item name="simple" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="com.distriqt.IDFA" type="b2602c69:ProjectViewProjectNode" />
               <item name="simple" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="com.distriqt.IDFA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starling" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="com.distriqt.IDFA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starling" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="com.distriqt.IDFA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starling" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="idfa" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -947,15 +837,15 @@
       <workItem from="1526345834222" duration="107000" />
       <workItem from="1538049370837" duration="95000" />
       <workItem from="1540975458886" duration="2702000" />
+      <workItem from="1561985612574" duration="672000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42420000" />
+    <option name="totallyTimeSpent" value="43092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="132" y="22" width="1673" height="1283" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703862" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -966,7 +856,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2955242" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29920295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1073,7 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,13 +1006,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platform/default/includes/ExtensionBaseDefault.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/default/includes/ExtensionBaseDefault.as" />
     <entry file="file://$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/IDFA.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1824">
@@ -1148,13 +1031,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platform/default/includes/ExtensionBaseDefault.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/default/includes/ExtensionBaseDefault.as" />
     <entry file="file://$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/IDFA.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1920">
@@ -1263,18 +1140,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platform/default/includes/ExtensionBaseDefault.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/default/includes/ExtensionBaseDefault.as" />
     <entry file="file://$PROJECT_DIR$/platform/default/default.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1286,23 +1156,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/starling/src/TestIDFA-app.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="98" lean-forward="false" selection-start-line="8" selection-start-column="98" selection-end-line="8" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/starling/src/TestIDFA.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/starling/src/Config.as">
+    <entry file="file://$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/Version.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1318,38 +1172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/IDFA.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3411">
-          <caret line="227" column="8" lean-forward="false" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/events/IDFAEvent.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="79" column="43" lean-forward="false" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/Version.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/IDFA.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="143" column="8" lean-forward="true" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/simple/src/TestIDFA.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="926">
@@ -1358,10 +1180,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/example/starling/src/TestIDFA.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1086">
+          <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/IDFA.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="155" column="9" lean-forward="true" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/starling/src/TestIDFA-app.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="60" lean-forward="true" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/starling/src/Config.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/events/IDFAEvent.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-258">
+          <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/example/starling/src/com/distriqt/test/idfa/IDFATests.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="92" column="13" lean-forward="false" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+        <state relative-caret-position="368">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/IDFA.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="301" column="25" lean-forward="true" selection-start-line="301" selection-start-column="25" selection-end-line="301" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1419,12 +1289,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>actionscript</last-edited>
+          <last-edited>starling|starling</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

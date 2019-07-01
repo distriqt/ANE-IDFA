@@ -24,6 +24,7 @@ import com.distriqt.extension.idfa.IDFAExtension;
 import com.distriqt.extension.idfa.events.IDFAEvent;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -67,9 +68,11 @@ public class IDFAController
 
 	public boolean isGooglePlayServicesAvailable()
 	{
-		//int resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable( _extContext.getActivity().getApplicationContext() );
-		int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable( _extContext.getActivity().getApplicationContext() );
-		if (ConnectionResult.SUCCESS == resultCode)
+		GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+
+		int connectionResult = apiAvailability.isGooglePlayServicesAvailable( _extContext.getActivity() );
+
+		if (connectionResult == ConnectionResult.SUCCESS)
 		{
 			LogUtil.d( IDFAExtension.ID, TAG, "Google Play services is available.");
 			return true;
@@ -78,6 +81,19 @@ public class IDFAController
 		{
 			LogUtil.d( IDFAExtension.ID, TAG, "Google Play services NOT available.");
 		}
+
+
+		//int resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable( _extContext.getActivity().getApplicationContext() );
+		//int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable( _extContext.getActivity().getApplicationContext() );
+		//if (ConnectionResult.SUCCESS == resultCode)
+		//{
+		//	LogUtil.d( IDFAExtension.ID, TAG, "Google Play services is available.");
+		//	return true;
+		//}
+		//else
+		//{
+		//	LogUtil.d( IDFAExtension.ID, TAG, "Google Play services NOT available.");
+		//}
 		return false;
 	}
 

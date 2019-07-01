@@ -202,6 +202,7 @@
 			<arg line="-project ${ios.dir}/${ios.name}.xcodeproj"/>
 			<arg line="ONLY_ACTIVE_ARCH=NO" />
 			<arg line="BITCODE_GENERATION_MODE=bitcode" />
+			<arg line="OTHER_CFLAGS='-fembed-bitcode'" />
 			<arg line="-configuration ${ios.xcode_build}"/>
 			<arg line="-alltargets" />
 			<arg value="build"/>
@@ -214,6 +215,7 @@
 			<arg line="-workspace ${ios.dir}/${ios.name}.xcworkspace"/>
 			<arg line="ONLY_ACTIVE_ARCH=NO" />
 			<arg line="BITCODE_GENERATION_MODE=bitcode" />
+			<arg line="OTHER_CFLAGS='-fembed-bitcode'" />
 			<arg line="-configuration ${ios.xcode_build}"/>
 			<arg line="-scheme ${ios.name}" />
 			<arg value="build"/>
@@ -228,6 +230,7 @@
 			<arg line="-project ${ios.dir}/${ios.name}.xcodeproj"/>
 			<arg line="ONLY_ACTIVE_ARCH=NO" />
 			<arg line="BITCODE_GENERATION_MODE=bitcode" />
+			<arg line="OTHER_CFLAGS='-fembed-bitcode'" />
 			<arg line="-configuration ${ios.xcode_build}"/>
 			<arg line="-alltargets" />
 			<arg value="build" />
@@ -240,6 +243,7 @@
 			<arg line="-workspace ${ios.dir}/${ios.name}.xcworkspace"/>
 			<arg line="ONLY_ACTIVE_ARCH=NO" />
 			<arg line="BITCODE_GENERATION_MODE=bitcode" />
+			<arg line="OTHER_CFLAGS='-fembed-bitcode'" />
 			<arg line="-configuration ${ios.xcode_build}"/>
 			<arg line="-scheme ${ios.name}" />
 			<arg value="build" />
@@ -466,7 +470,7 @@
 		<unzip src="${explode_aar_file}" dest="${android.dir}/${output.tmpdir}" overwrite="true"/>
 
 		<copy file="${android.dir}/${output.tmpdir}/classes.jar" tofile="${android.dir}/${android.outputdir}/${explode_aar_name}.jar" />
-		<copy includeEmptyDirs="false" overwrite="true" todir="${android.dir}/${android.outputdir}/${explode_aar_name}-res">
+		<copy includeEmptyDirs="false" overwrite="true" todir="${android.dir}/${android.outputdir}/${explode_aar_name}-res" failonerror="false">
 			<fileset dir="${android.dir}/${output.tmpdir}/res/" />
 		</copy>
 
@@ -495,17 +499,24 @@
 					<include name="**/@{lib}.aar" />
 					<include name="**/@{lib}.jar" />
 				</fileset>
+				<fileset dir="${android.dir}" id="fileset3">
+					<include name="**/@{lib}.aar" />
+					<include name="**/@{lib}.jar" />
+				</fileset>
 				<path id="aarfile">
 					<first>
 						<union>
 							<resources refid="fileset1" />
    							<resources refid="fileset2" />
+   							<resources refid="fileset3" />
 						</union>
 					</first>
 				</path>
 				<mkdir dir="${android.dir}/${output.tmpdir}" />
 				<unzip src="${toString:aarfile}" dest="${android.dir}/${output.tmpdir}" overwrite="true"/>
+				<copy file="${toString:aarfile}" todir="${android.dir}/${output.tmpdir}" failonerror="false" />
 				<copy file="${android.dir}/${output.tmpdir}/classes.jar" tofile="${android.dir}/externals/@{lib}.jar" failonerror="false" />
+				<copy file="${android.dir}/${output.tmpdir}/@{lib}.jar" tofile="${android.dir}/externals/@{lib}.jar" failonerror="false" />
 				<copy todir="${android.dir}/externals" failonerror="false" flatten="true">
 					<fileset dir="${android.dir}/${output.tmpdir}" >
 						<include name="**/*.jar" />
@@ -582,12 +593,14 @@
 			<arg line="-platform iPhone-x86 -platformoptions ./build_config/platform_ios.build.xml -C ${ios.dir}/${ios.iphonesimulator_dir} ."/>
 			<!-- <arg line="-platform appleTV-ARM -platformoptions ./build_config/platform_tvos.build.xml -C ${ios.dir}/${ios.tvos_dir} ."/> -->
 			<arg line="-platform Android-ARM -platformoptions ./build_config/platform_android.build.xml -C ${android.dir}/${android.outputdir} ."/>
+			<arg line="-platform Android-ARM64 -platformoptions ./build_config/platform_android.build.xml -C ${android.dir}/${android.outputdir} ."/>
 			<arg line="-platform Android-x86 -platformoptions ./build_config/platform_android.build.xml -C ${android.dir}/${android.outputdir} ."/>
 			<arg line="-platform default -C ${default.dir}/bin ."/>
 		</exec>
 		
 		<delete file="${ios.dir}/${ios.iphoneos_dir}/library.swf" />
 		<delete file="${ios.dir}/${ios.iphonesimulator_dir}/library.swf" />
+		<delete file="${ios.dir}/${ios.tvos_dir}/library.swf" />
 		<delete file="${android.dir}/${android.outputdir}/library.swf" />
 		<delete file="${default.dir}/bin/library.swf" />   
 	</target>
@@ -772,6 +785,7 @@ _site
 	//
 	//
 	-->
+
 
 	<target name="all" depends="clean, version, build, externals_android, package, docs" />
 

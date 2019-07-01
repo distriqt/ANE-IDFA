@@ -62,6 +62,11 @@ You can access the Google Play Services client library extensions here:
 [https://github.com/distriqt/ANE-GooglePlayServices](https://github.com/distriqt/ANE-GooglePlayServices).
 
 
+>
+> **Note:** The Google Play Services and Android Support ANEs are only **required** on Android devices. 
+> There is no problem packaging these ANEs with all platforms as there are default implementations available which will allow your code to package without errors 
+> however if you are only building an iOS application feel free to remove the Google Play Services ANEs from your application.
+>
 
 
 ## Extension IDs

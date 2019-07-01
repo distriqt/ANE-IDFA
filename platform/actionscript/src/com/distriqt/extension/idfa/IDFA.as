@@ -23,6 +23,16 @@ package com.distriqt.extension.idfa
 	import flash.events.StatusEvent;
 	import flash.external.ExtensionContext;
 	
+	/**
+	 * @eventType com.distriqt.extension.idfa.events.IDFAEvent.COMPLETE
+	 */
+	[Event(name="idfa:complete", type="com.distriqt.extension.idfa.events.IDFAEvent")]
+	
+	/**
+	 * @eventType com.distriqt.extension.idfa.events.IDFAEvent.ERROR
+	 */
+	[Event(name="idfa:error", type="com.distriqt.extension.idfa.events.IDFAEvent")]
+	
 	
 	/**	
 	 * <p>
@@ -129,6 +139,7 @@ package com.distriqt.extension.idfa
 		}
 		
 		
+		[Deprecated(message="You no longer need to use an application key")]
 		/**
 		 * Initialises the extension class for use with the provided key.
 		 *

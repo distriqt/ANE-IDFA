@@ -105,7 +105,8 @@ package com.distriqt.extension.idfa
 		}
 		
 		
-		public static function init( key:String ):void
+		[Deprecated(message="You no longer need to use an application key")]
+		public static function init( key:String="" ):void
 		{
 			createInstance();
 		}
