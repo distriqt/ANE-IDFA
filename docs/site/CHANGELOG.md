@@ -1,5 +1,13 @@
 
 
+###### 2019.08.16 [v2.0.003]
+
+```
+Android 64bit support (resolves #3)
+Updated minimum iOS version to 9.0
+```
+
+
 ###### 2019.02.26 [v1.1.025]
 
 ```
@@ -16,9 +24,13 @@ Added isLimitAdTrackingEnabled for Android and iOS (resolves #1)
 
 ###### 2017.12.01 [v1.0.021]
 
+```
 Updated documentation
+```
 
 
 ###### 2017.12.01 [v1.0.021]
 
+```
 Initial release
+```

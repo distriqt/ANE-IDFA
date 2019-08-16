@@ -1,5 +1,13 @@
 
 
+###### 2019.08.16 [v2.0.003]
+
+```
+Android 64bit support (resolves #3)
+Updated minimum iOS version to 9.0
+```
+
+
 ###### 2019.02.26 [v1.1.025]
 
 ```
