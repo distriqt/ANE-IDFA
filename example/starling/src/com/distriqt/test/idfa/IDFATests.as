@@ -51,7 +51,6 @@ package com.distriqt.test.idfa
 	        _l = logger;
 	        try
 	        {
-		        IDFA.init( Config.applicationKey );
 		        log( "IDFA isSupported: " + IDFA.isSupported );
 		        if (IDFA.isSupported)
 		        {
