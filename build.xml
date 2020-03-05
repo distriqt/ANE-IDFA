@@ -1,6 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project default="all" name="ane.build"> 
 	
-	<import file="./build_base.xml" />
+	<import file="build_common.xml" />
+	<property file="${common.basedir}/build_config/build.config" description="build properties" />
 	
+	
+	<macrodef name="iterate">
+        <attribute name="target"/>
+        <attribute name="directory"/>
+        <sequential>
+            <subant target="@{target}">
+                <fileset dir="@{directory}">
+					<include name="**/build_*.xml" />
+				</fileset>
+            </subant>
+        </sequential>
+    </macrodef>
+	
+	
+	<!-- 
+	//
+	//
+	//	VERSIONING 
+	//
+	//
+	-->
+	
+	<target name="version">
+		<antcall target="version_increment" />
+	</target>
+
+	<target name="version_increment">
+		<propertyfile file="./build_config/version.config">
+			<entry key="version_build" type="int" operation="+" value="1" pattern="000" />
+		</propertyfile>
+	</target>
+
+
+	<!-- 
+	//
+	//
+	//	BUILD PLATFORMS 
+	//
+	//
+	-->
+
+
+	<target name="build_platforms">
+        <iterate target="build" directory="platform" />
+	</target>
+
+	<target name="clean_platforms">
+        <iterate target="clean" directory="platform" />
+	</target>
+
+
+
+	<!-- 
+	//
+	//
+	//	PACKAGE EXTENSIONS 
+	//
+	//
+	-->
+
+
+
+	<target name="build_extensions">
+        <iterate target="build" directory="extension" />
+	</target>
+
+	<target name="clean_extensions">
+        <iterate target="clean" directory="extension" />
+	</target>
+
+
+
+	<!-- 
+	//
+	//
+	//	DOCUMENTATION   
+	//
+	//
+	-->
+
+	<target name="docs">
+        <iterate target="docs" directory="platform" />
+	</target>
+
+
+	<target name="wikiToPages">
+		<mkdir dir="docs/site" />
+		<echo file="docs/site/.gitignore" >
+Gemfile
+_site
+		</echo>
+		
+		<delete defaultexcludes="false" includeemptydirs="true">
+			<fileset dir="docs/site">
+				<include name="**/*" />
+				<exclude name=".gitignore" />
+			</fileset>
+		</delete>
+
+
+
+		<!-- Clone the site template -->
+		<exec executable="git" >
+			<arg value="clone" />
+			<arg value="git@gitlab.com:airnativeextensions/github-pages-template.git" />
+			<arg value="_tmpclone" />
+		</exec>
+		<copy todir="docs/site" overwrite="true" >
+			<fileset dir="_tmpclone" />
+			<filterchain>
+				<tokenfilter>
+					<replacestring from="Template" to="${project.name}"/>
+				</tokenfilter>
+			</filterchain>
+		</copy>
+		<delete dir="_tmpclone" failonerror="false" />
+
+		<!-- Copy the wiki files 
+		 - update links to md 
+		 - move Home to index 
+		 - copy images 
+		 - sidebar manipulation to html
+		 -->
+		<copy todir="docs/site" overwrite="true" >
+			<fileset dir="docs/wiki" defaultexcludes="false">
+				<exclude name="**/_Sidebar.md" />
+				<exclude name="**/_Footer.md" />
+				<include name="**/*.md" />
+			</fileset>
+			<filterchain>
+				<tokenfilter>
+					<replacestring from="[[" to="![]("/>
+					<replacestring from="]]" to=")"/>
+				</tokenfilter>
+			</filterchain>
+		</copy>
+		<move file="docs/site/Home.md" tofile="docs/site/index.md" />
+		<copy todir="docs/site" overwrite="true" >
+			<fileset dir="docs/wiki" defaultexcludes="false">
+				<include name="**/images/**" />
+			</fileset>
+		</copy>
+		<copy file="docs/wiki/_Sidebar.md" tofile="docs/site/_includes/Sidebar.html" overwrite="true">
+			<filterchain>
+				<tokenfilter>
+					<replacestring from="---" to="&lt;br/&gt;&lt;hr/&gt;"/>
+					<!--<replacestring from="|Home]]" to="|https://airnativeextensions.com/extension/com.distriqt.${project.name}]]"/>-->
+					<replaceregex flags="g" 
+						pattern="^(.[^\[\(\&lt;]+)$" 
+						replace="&lt;h4&gt;\1&lt;/h4&gt;" />
+					<replaceregex flags="g"
+						pattern="\[\[(.+?)\|Home\]\]"
+						replace="" />
+					<replaceregex flags="g"
+						pattern="\[\[(.+?)\|(.+?)\]\]"
+						replace="&lt;a href='\2'&gt;\1&lt;\/a&gt;&lt;br\/&gt;" />
+					<replaceregex flags="g"
+						pattern="\[(.+?)\]\((.+?)\)"
+						replace="&lt;a href='\2'&gt;\1&lt;\/a&gt;&lt;br\/&gt;" />
+				</tokenfilter>
+			</filterchain>
+		</copy>
+
+		<!-- Copy ASDocs -->
+		<copy todir="docs/site/asdocs" overwrite="true" >
+			<fileset dir="docs/asdocs" />
+		</copy>
+
+	</target>
+
+
+
+
+	<!-- 
+	//
+	//
+	//	GLOBAL TARGETS 
+	//
+	//
+	-->
+
+	<target name="all" depends="version, build_platforms, build_extensions" />
+
+	<target name="clean" depends="clean_platforms, clean_extensions" />
+
+	<target name="release" depends="docs, wikiToPages" />
+
+
 </project>

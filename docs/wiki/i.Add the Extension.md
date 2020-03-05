@@ -2,13 +2,20 @@
 ## Add the Extension
 
 First step is always to add the extension to your development environment. 
-To do this use the tutorial located [here](http://airnativeextensions.com/knowledgebase/tutorial/1).
+To do this use the tutorial located [here](https://airnativeextensions.github.io/tutorials/getting-started).
 
 
 
-## Required ANEs
+## Dependencies
 
-### Core ANE
+Many of our extensions use some common libraries, for example, the Android Support libraries.
+
+We have to separate these libraries into separate extensions in order to avoid multiple versions of the libraries being included in your application and causing packaging conflicts. This means that you need to include some additional extensions in your application along with the main extension file.
+
+You will add these extensions as you do with any other extension, and you need to ensure it is packaged with your application.
+
+
+### Core 
 
 The Core ANE is required by this ANE. You must include and package this extension in your application.
 
@@ -87,7 +94,9 @@ The following should be added to your `extensions` node in your application desc
 
 
 
-## Android Manifest Additions 
+## Android 
+
+### Manifest Additions 
 
 You need to make sure you add the `android.permission.INTERNET` permission and the 
 `com.google.android.gms.version` tags to your manifest additions as below:

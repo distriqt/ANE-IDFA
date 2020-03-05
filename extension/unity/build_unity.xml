@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<project default="build" name="extension_unity" 
+	xmlns:if="ant:if"
+	xmlns:unless="ant:unless"> 
+
+	
+	<import file="../../build_common.xml" />
+
+
+	<!-- 
+	//
+	//
+	//	CONFIGURATION 
+	//
+	//
+	-->
+	
+	<lower name="project.packagename" value="${project.name}" />
+
+	<dirname property="unity.basedir" file="${ant.file.extension_unity}" />
+
+
+	<!-- 
+	//
+	//
+	//	VERSIONING 
+	//
+	//
+	-->
+
+	<target name="version_write" >
+		<property name="version" value="${version_major}.${version_minor}.${version_build}" />
+
+		
+	</target>
+
+
+
+
+
+    <!-- 
+	//
+	//
+	//	BUILD TASKS 
+	//
+	//
+	-->
+
+
+    <target name="build" if="${output.unity.enabled}" >
+
+		<antcall target="package" >
+			<param name="variant" value="" />
+		</antcall>
+
+		<antcall target="build_variants" />
+    </target>
+
+
+	<target name="build_variants" if="variants">
+		<for list="${variants}" param="variant">
+			<sequential>
+				<echo>@{variant}</echo>
+				<antcall target="package" >
+					<param name="variant" value="@{variant}" />
+				</antcall>
+			</sequential>
+		</for>
+	</target>
+
+
+	<target name="package" >
+		<echo message="PACKAGE VARIANT: ${variant}" />
+
+		<antcall target="clean" />
+
+		<antcall target="package_extension" >
+			<param name="variant" value="${variant}" />
+		</antcall>
+    </target>
+
+
+    <target name="clean" >
+        <delete dir="${output.dir}" />
+        <delete dir="platform" />
+        <delete>
+			<fileset dir=".">
+				<include name="*.build.xml" />
+			</fileset>
+		</delete>
+    </target>
+
+
+    <target name="package_extension" description="Package Plugin" depends="version_write" >
+		
+
+		<!-- Combine iphoneos and simualtor static libs -->
+		<exec executable="lipo" dir="${unity.basedir}">
+			<arg line="-create" />
+			<arg line="-output '${unity.plugindir}/iOS/${unity.ioslibname}'" />
+			<arg line="'${common.basedir}/${ios.dir}/${unity.iphoneos_dir}/${unity.ioslibname}'" if:true="${ios.enabled}" /> 
+			<arg line="'${common.basedir}/${ios.dir}/${unity.iphonesimulator_dir}/${unity.ioslibname}'" if:true="${ios.enabled}" />
+			<!-- <arg value="${common.basedir}/${ios.dir}/${unity.tvos_dir}/${unity.ioslibname}" if:true="${tvos.enabled}" /> -->
+		</exec>
+		
+
+		<!-- Copy apple tv os lib -->
+		<copy if:true="${tvos.enabled}"
+			file="${common.basedir}/${ios.dir}/${unity.tvos_dir}/${unity.ioslibname}" 
+			todir="${unity.basedir}/${unity.plugindir}/tvOS" 
+			failonerror="false"
+			 />
+
+
+		<!-- Copy macOS lib -->
+		<copy if:true="${macos.enabled}"
+			todir="${unity.basedir}/${unity.plugindir}" 
+			failonerror="false" >
+			 <fileset dir="${common.basedir}/${macos.dir}/${macos.build_dir}">
+			 	<include name="*.bundle/**" />
+			 </fileset>
+		</copy>
+
+
+		<!-- Copy android lib -->
+		<copy if:true="${android.enabled}"
+			file="${common.basedir}/${android.dir}/app/build/outputs/aar/app-release.aar" 
+			tofile="${unity.basedir}/${unity.plugindir}/Android/${project.name}.aar" />
+		
+		<copy if:true="${android.enabled}" overwrite="true" todir="${unity.basedir}/${unity.plugindir}/Android">
+			<fileset file="${supportlibs.corejar}" >
+				<exclude name="corenativeextension.android.lib.air.jar" />
+			</fileset>
+		</copy>
+
+
+		<!-- Use Unity to create unitypackage -->
+		<exec executable="${unity.cmd}" failonerror="true">
+			<arg line="-batchMode" />
+			<arg line="-projectPath ${unity.basedir}" />
+			<arg line="-exportPackage Assets" />
+			<arg line="${common.basedir}/${output.dir}/${unity.packagename}" />
+			<arg line="-quit" />
+		</exec> 
+
+
+	</target>
+
+
+
+
+
+
+
+
+	<!-- 
+	//
+	//
+	//	DOCUMENTATION 
+	//
+	//
+	-->
+
+    <target name="docs" description="">
+    </target>
+
+
+</project>
+
