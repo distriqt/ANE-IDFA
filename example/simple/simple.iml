@@ -20,6 +20,9 @@
             <entry library-name="com.distriqt.playservices.Base" library-level="application">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="androidx.core" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="current" />
         </dependencies>
@@ -71,5 +74,6 @@
     <orderEntry type="library" exported="" name="com.distriqt.androidsupport.V4" level="application" />
     <orderEntry type="library" exported="" name="com.distriqt.playservices.Ads" level="application" />
     <orderEntry type="library" exported="" name="com.distriqt.playservices.Base" level="application" />
+    <orderEntry type="library" exported="" name="androidx.core" level="application" />
   </component>
 </module>

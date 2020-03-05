@@ -15,8 +15,23 @@ gives you simple access to the advertising identifiers on Android and iOS.
 
 
 
-This Wiki forms the best source of detailed documentation for the extension along with 
+## Documentation
+
+The [wiki](https://github.com/distriqt/ANE-IDFA/wiki) forms the best source of detailed documentation for the extension along with 
 the [asdocs](https://distriqt.github.io/ANE-IDFA/asdocs). 
+
+
+Example: 
+
+```actionscript
+IDFA.service.addEventListener( IDFAEvent.COMPLETE, idfaCompleteHandler );
+IDFA.service.getIDFA();
+
+function idfaCompleteHandler( event:IDFAEvent ):void
+{
+    trace( "identifier: " + event.identifier );
+}
+```
 
 
 [[images/promo.png]]
