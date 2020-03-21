@@ -104,7 +104,7 @@
 		<![CDATA[
 		var outputName = "";
 		
-		var prefix = attributes.get( "prefix" ).toLowerCase();
+		var prefix = attributes.get( "prefix" );
 		if (prefix.length > 0)
 			outputName = prefix + ".";
 			
@@ -130,7 +130,7 @@
 		<![CDATA[
 		var packageName = "";
 
-		var prefix = attributes.get( "prefix" ).toLowerCase();
+		var prefix = attributes.get( "prefix" );
 		if (prefix.length > 0)
 			packageName = prefix + ".";
 

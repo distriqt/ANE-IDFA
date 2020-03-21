@@ -211,58 +211,53 @@
 
     <target name="prepare_ios"  description="Copy iOS files for packaging" if="${ios.enabled}">
 		
+		
+		<fileset id="iphoneosdir" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" erroronmissingdir="false">
+			<include name="**/*"/>
+		</fileset>
+		<fileset id="iphonesimulatordir" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" erroronmissingdir="false">
+			<include name="**/*"/>
+		</fileset>
+		<fileset id="tvosdir" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" erroronmissingdir="false">
+			<include name="**/*"/>
+		</fileset>
+		<fileset id="codedir" dir="${common.basedir}/${ios.dir}/${ios.name}" erroronmissingdir="false" >
+			<include name="*.framework/**"/>
+			<exclude name="*.framework/Versions/**"/>
+			<include name="*.bundle/**"/>
+		</fileset>
+		<fileset id="libsvariantdir" dir="${common.basedir}/${ios.dir}/libs/${variant}" erroronmissingdir="false">
+			<include name="*.framework/**"/>
+			<exclude name="*.framework/Versions/**"/>
+			<include name="*.bundle/**"/>
+		</fileset>
+
         <copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" >
-            <fileset dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" erroronmissingdir="false">
-				<include name="**/*"/>
-			</fileset>
+			<resources>
+				<union>
+					<resources refid="iphoneosdir" />
+					<resources refid="codedir" />
+					<resources refid="libsvariantdir" />
+				</union>
+			</resources>
 		</copy>
         <copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" >
-            <fileset dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" erroronmissingdir="false">
-				<include name="**/*"/>
-			</fileset>
+            <resources>
+				<union>
+					<resources refid="iphonesimulatordir" />
+					<resources refid="codedir" />
+					<resources refid="libsvariantdir" />
+				</union>
+			</resources>
 		</copy>
         <copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" if:true="${tvos.enabled}">
-            <fileset dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" erroronmissingdir="false">
-				<include name="**/*"/>
-			</fileset>
-		</copy>
-
-		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" >
-			<fileset dir="${common.basedir}/${ios.dir}/${ios.name}" erroronmissingdir="false">
-				<include name="*.framework/**"/>
-				<include name="*.bundle/**"/>
-			</fileset>
-		</copy>
-		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" >
-			<fileset dir="${common.basedir}/${ios.dir}/${ios.name}" erroronmissingdir="false">
-				<include name="*.framework/**"/>
-				<include name="*.bundle/**"/>
-			</fileset>
-		</copy>
-		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" if:true="${tvos.enabled}">
-			<fileset dir="${common.basedir}/${ios.dir}/${ios.name}" erroronmissingdir="false">
-				<include name="*.framework/**"/>
-				<include name="*.bundle/**"/>
-			</fileset>
-		</copy>
-		
-		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" >
-			<fileset dir="${common.basedir}/${ios.dir}/libs/${variant}" erroronmissingdir="false">
-				<include name="*.framework/**"/>
-				<include name="*.bundle/**"/>
-			</fileset>
-		</copy>
-		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" >
-			<fileset dir="${common.basedir}/${ios.dir}/libs/${variant}" erroronmissingdir="false">
-				<include name="*.framework/**"/>
-				<include name="*.bundle/**"/>
-			</fileset>
-		</copy>
-		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" if:true="${tvos.enabled}">
-			<fileset dir="${common.basedir}/${ios.dir}/libs/${variant}" erroronmissingdir="false">
-				<include name="*.framework/**"/>
-				<include name="*.bundle/**"/>
-			</fileset>
+            <resources>
+				<union>
+					<resources refid="tvosdir" />
+					<resources refid="codedir" />
+					<resources refid="libsvariantdir" />
+				</union>
+			</resources>
 		</copy>
 
 		<delete failonerror="false">

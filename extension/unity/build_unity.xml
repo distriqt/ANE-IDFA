@@ -129,8 +129,9 @@
 			tofile="${unity.basedir}/${unity.plugindir}/Android/${project.name}.aar" />
 		
 		<copy if:true="${android.enabled}" overwrite="true" todir="${unity.basedir}/${unity.plugindir}/Android">
-			<fileset file="${supportlibs.corejar}" >
-				<exclude name="corenativeextension.android.lib.air.jar" />
+			<fileset dir="${supportlibs.corejar}" >
+				<include name="*.jar" />
+				<exclude name="*air.jar" />
 			</fileset>
 		</copy>
 
