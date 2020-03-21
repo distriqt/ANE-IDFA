@@ -2,13 +2,20 @@
 ## Add the Extension
 
 First step is always to add the extension to your development environment. 
-To do this use the tutorial located [here](http://airnativeextensions.com/knowledgebase/tutorial/1).
+To do this use the tutorial located [here](https://airnativeextensions.github.io/tutorials/getting-started).
 
 
 
-## Required ANEs
+## Dependencies
 
-### Core ANE
+Many of our extensions use some common libraries, for example, the Android Support libraries.
+
+We have to separate these libraries into separate extensions in order to avoid multiple versions of the libraries being included in your application and causing packaging conflicts. This means that you need to include some additional extensions in your application along with the main extension file.
+
+You will add these extensions as you do with any other extension, and you need to ensure it is packaged with your application.
+
+
+### Core 
 
 The Core ANE is required by this ANE. You must include and package this extension in your application.
 
@@ -18,39 +25,34 @@ It also includes some centralised code for some common actions that can cause is
 You can access this extension here: [https://github.com/distriqt/ANE-Core](https://github.com/distriqt/ANE-Core).
 
 
-### Android Support ANE
+### Android Support
 
-Due to several of our ANE's using the Android Support library the library has been separated 
-into a separate ANE allowing you to avoid conflicts and duplicate definitions.
-This means that you need to include the some of the android support native extensions in 
-your application along with this extension. 
+The Android Support libraries encompass the Android Support, Android X and common Google libraries. 
 
-You will add these extensions as you do with any other ANE, and you need to ensure it is 
-packaged with your application. There is no problems including this on all platforms, 
-they are just **required** on Android.
+These libraries are specific to Android. There are no issues including these on all platforms, they are just **required** for Android.
 
-This ANE requires the following Android Support extensions:
+This extension requires the following extensions:
 
-- [com.distriqt.androidsupport.V4.ane](https://github.com/distriqt/ANE-AndroidSupport/raw/master/lib/com.distriqt.androidsupport.V4.ane)
+- [androidx.core.ane](https://github.com/distriqt/ANE-AndroidSupport/raw/master/lib/androidx.core.ane)
 
 You can access these extensions here: [https://github.com/distriqt/ANE-AndroidSupport](https://github.com/distriqt/ANE-AndroidSupport).
 
+
 >
-> **Note**: if you have been using the older `com.distriqt.AndroidSupport.ane` you should remove that
-> ANE and replace it with the equivalent `com.distriqt.androidsupport.V4.ane`. This is the new 
-> version of this ANE and has been renamed to better identify the ANE with regards to its contents.
+> **Note**: if you have been using the older `com.distriqt.androidsupport.*` (Android Support) extensions you should remove these extensions and replace it with the `androidx` extensions listed above. This is the new version of the android support libraries and moving forward all our extensions will require AndroidX.
 >
+
 
 
 ### Google Play Services 
 
-This ANE requires usage of certain aspects of the Google Play Services client library. 
-The client library is available as a series of ANEs that you add into your applications packaging options. 
-Each separate ANE provides a component from the Play Services client library and are used by different ANEs. 
-These client libraries aren't packaged with this ANE as they are used by multiple ANEs and separating them 
-will avoid conflicts, allowing you to use multiple ANEs in the one application.
+This extension requires usage of certain aspects of the Google Play Services client library. 
+The client library is available as a series of extensions that you add into your applications packaging options. 
+Each separate extension provides a component(s) from the Play Services client library and are used by different extensions. 
+These client libraries aren't packaged with this extension as they are used by multiple ANEs and separating them 
+will avoid conflicts, allowing you to use multiple extensions in the one application.
 
-This ANE requires the following Google Play Services:
+This extension requires the following Google Play Services:
 
 - [com.distriqt.playservices.Base.ane](https://github.com/distriqt/ANE-GooglePlayServices/raw/master/lib/com.distriqt.playservices.Base.ane)
 - [com.distriqt.playservices.Ads.ane](https://github.com/distriqt/ANE-GooglePlayServices/raw/master/lib/com.distriqt.playservices.Ads.ane)
@@ -64,9 +66,9 @@ You can access the Google Play Services client library extensions here:
 
 >
 > **Note:** The Google Play Services and Android Support ANEs are only **required** on Android devices. 
-> There is no problem packaging these ANEs with all platforms as there are default implementations available which will allow your code to package without errors 
-> however if you are only building an iOS application feel free to remove the Google Play Services ANEs from your application.
+> There are no issues packaging these extensions with all platforms as there are default implementations available which will allow your code to package without errors however if you are only building an iOS application feel free to remove the Google Play Services and Android Support ANEs from your application.
 >
+
 
 
 ## Extension IDs
@@ -77,9 +79,11 @@ The following should be added to your `extensions` node in your application desc
 <extensions>
     <extensionID>com.distriqt.IDFA</extensionID>
     <extensionID>com.distriqt.Core</extensionID>
-    <extensionID>com.distriqt.androidsupport.V4</extensionID>
+
     <extensionID>com.distriqt.playservices.Base</extensionID>
     <extensionID>com.distriqt.playservices.Ads</extensionID>
+
+    <extensionID>androidx.core</extensionID>
 </extensions>
 ```
 
@@ -87,7 +91,9 @@ The following should be added to your `extensions` node in your application desc
 
 
 
-## Android Manifest Additions 
+## Android 
+
+### Manifest Additions 
 
 You need to make sure you add the `android.permission.INTERNET` permission and the 
 `com.google.android.gms.version` tags to your manifest additions as below:
@@ -104,6 +110,9 @@ You need to make sure you add the `android.permission.INTERNET` permission and t
     </application>
 </manifest>
 ```
+
+
+
 
 
 ## Checking for Support
