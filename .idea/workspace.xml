@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70b6636e-0aee-49db-94d0-8ff091829999" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/platform/android/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/VERSION.md" beforeDir="false" afterPath="$PROJECT_DIR$/build/VERSION.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/com.distriqt.IDFA.ane" beforeDir="false" afterPath="$PROJECT_DIR$/build/com.distriqt.IDFA.ane" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build_config/version.config" beforeDir="false" afterPath="$PROJECT_DIR$/build_config/version.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/simple/simple.iml" beforeDir="false" afterPath="$PROJECT_DIR$/example/simple/simple.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/starling/src/TestIDFA-app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/starling/src/TestIDFA-app.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/starling/src/com/distriqt/test/idfa/IDFATests.as" beforeDir="false" afterPath="$PROJECT_DIR$/example/starling/src/com/distriqt/test/idfa/IDFATests.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/starling/starling.iml" beforeDir="false" afterPath="$PROJECT_DIR$/example/starling/starling.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/Const.as" beforeDir="false" afterPath="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/Const.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/android/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.idea/libraries/Gradle____local_aars____Users_marchbold_work_distriqt_extensions_extensions_idfa_source_platform_android_app_libs_FlashRuntimeExtensions_jar_unspecified_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.idea/libraries/Gradle____local_aars____Users_marchbold_work_distriqt_extensions_extensions_idfa_source_platform_android_app_libs_corenativeextension_android_lib_air_jar_unspecified_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.idea/libraries/Gradle____local_aars____Users_marchbold_work_distriqt_extensions_extensions_idfa_source_platform_android_app_libs_corenativeextension_android_lib_jar_unspecified_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.idea/libraries/Gradle____local_aars____Users_marchbold_work_distriqt_extensions_extensions_idfa_source_platform_android_app_libs_runtimeClasses_jar_unspecified_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/android/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/android/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/android/android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/android/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/app/build/outputs/aar/app-release.aar" beforeDir="false" afterPath="$PROJECT_DIR$/platform/android/app/build/outputs/aar/app-release.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/android/app/src/main/java/com/distriqt/extension/idfa/controller/IDFAController.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform/android/app/src/main/java/com/distriqt/extension/idfa/controller/IDFAController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/Const.as" beforeDir="false" afterPath="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/Const.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/ios/build/Release-iphoneos/libIDFA.a" beforeDir="false" afterPath="$PROJECT_DIR$/platform/ios/build/Release-iphoneos/libIDFA.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/ios/build/Release-iphonesimulator/libIDFA.a" beforeDir="false" afterPath="$PROJECT_DIR$/platform/ios/build/Release-iphonesimulator/libIDFA.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/simple/src/TestIDFA-app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/simple/src/TestIDFA-app.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,12 +35,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="132" />
-    <option name="y" value="22" />
-    <option name="width" value="1673" />
-    <option name="height" value="1283" />
   </component>
   <component name="ProjectId" id="1eeupPKhKWg8ExTzW9ZiVIveb4V" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -448,7 +421,9 @@
       <workItem from="1540975458886" duration="2702000" />
       <workItem from="1561985612574" duration="672000" />
       <workItem from="1583388856329" duration="173000" />
-      <workItem from="1594694562820" duration="997000" />
+      <workItem from="1594694562820" duration="1279000" />
+      <workItem from="1594701474436" duration="13000" />
+      <workItem from="1594701583624" duration="137000" />
     </task>
     <servers />
   </component>
@@ -464,38 +439,38 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="1659" y="493" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594694994753" />
-    <state width="1235" height="561" key="GridCell.Tab.0.bottom" timestamp="1594695037095">
+    <state width="1235" height="561" key="GridCell.Tab.0.bottom" timestamp="1594701470029">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1235" height="561" key="GridCell.Tab.0.bottom/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594695037095" />
-    <state width="1235" height="561" key="GridCell.Tab.0.center" timestamp="1594695037095">
+    <state width="1235" height="561" key="GridCell.Tab.0.bottom/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594701470029" />
+    <state width="1235" height="561" key="GridCell.Tab.0.center" timestamp="1594701470029">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1235" height="561" key="GridCell.Tab.0.center/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594695037095" />
-    <state width="1235" height="561" key="GridCell.Tab.0.left" timestamp="1594695037095">
+    <state width="1235" height="561" key="GridCell.Tab.0.center/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594701470029" />
+    <state width="1235" height="561" key="GridCell.Tab.0.left" timestamp="1594701470029">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1235" height="561" key="GridCell.Tab.0.left/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594695037095" />
-    <state width="1235" height="561" key="GridCell.Tab.0.right" timestamp="1594695037095">
+    <state width="1235" height="561" key="GridCell.Tab.0.left/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594701470029" />
+    <state width="1235" height="561" key="GridCell.Tab.0.right" timestamp="1594701470029">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1235" height="561" key="GridCell.Tab.0.right/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594695037095" />
-    <state width="1235" height="561" key="GridCell.Tab.1.bottom" timestamp="1594695036959">
+    <state width="1235" height="561" key="GridCell.Tab.0.right/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594701470029" />
+    <state width="1235" height="561" key="GridCell.Tab.1.bottom" timestamp="1594701470030">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1235" height="561" key="GridCell.Tab.1.bottom/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594695036959" />
-    <state width="1235" height="561" key="GridCell.Tab.1.center" timestamp="1594695036958">
+    <state width="1235" height="561" key="GridCell.Tab.1.bottom/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594701470030" />
+    <state width="1235" height="561" key="GridCell.Tab.1.center" timestamp="1594701470030">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1235" height="561" key="GridCell.Tab.1.center/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594695036958" />
-    <state width="1235" height="561" key="GridCell.Tab.1.left" timestamp="1594695036958">
+    <state width="1235" height="561" key="GridCell.Tab.1.center/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594701470030" />
+    <state width="1235" height="561" key="GridCell.Tab.1.left" timestamp="1594701470029">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1235" height="561" key="GridCell.Tab.1.left/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594695036958" />
-    <state width="1235" height="561" key="GridCell.Tab.1.right" timestamp="1594695036958">
+    <state width="1235" height="561" key="GridCell.Tab.1.left/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594701470029" />
+    <state width="1235" height="561" key="GridCell.Tab.1.right" timestamp="1594701470030">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1235" height="561" key="GridCell.Tab.1.right/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594695036958" />
+    <state width="1235" height="561" key="GridCell.Tab.1.right/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1594701470030" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
