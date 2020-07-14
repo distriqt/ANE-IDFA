@@ -17,14 +17,17 @@
             <entry library-name="com.distriqt.playservices.Base" library-level="application">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.distriqt.playservices.Ads" library-level="application">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="androidx.core" library-level="application">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="com.distriqt.playservices.Ads" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.distriqt.playservices.AdsIdentifier" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
-          <sdk name="AIRSDK_33.0.2.338" />
+          <sdk name="current" />
         </dependencies>
         <compiler-options />
         <packaging-air-desktop />
@@ -57,7 +60,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_33.0.2.338" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="current" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
@@ -85,5 +88,6 @@
     <orderEntry type="library" exported="" name="com.distriqt.playservices.Base" level="application" />
     <orderEntry type="library" exported="" name="com.distriqt.playservices.Ads" level="application" />
     <orderEntry type="library" exported="" name="androidx.core" level="application" />
+    <orderEntry type="library" exported="" name="com.distriqt.playservices.AdsIdentifier" level="application" />
   </component>
 </module>

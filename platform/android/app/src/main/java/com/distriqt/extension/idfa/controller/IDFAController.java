@@ -131,6 +131,11 @@ public class IDFAController
 						showErrorDialog(e.errorCode);
 						_extContext.dispatchEvent( IDFAEvent.ERROR, "" );
 					}
+					catch (NoClassDefFoundError e)
+					{
+						e.printStackTrace();
+						_extContext.dispatchEvent( "extension:error", "Missing com.distriqt.playservices.AdsIdentifier extension dependency" );
+					}
 					catch (Exception e)
 					{
 						FREUtils.handleException( e );

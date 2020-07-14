@@ -5,7 +5,7 @@
 	xmlns:unless="ant:unless"> 
 
 
-	
+
 	<import file="../../build_common.xml" />
 
 
@@ -29,26 +29,26 @@
 	//
 	//
 	-->
-	
+
 	<!-- <lower name="project.packagename" value="${project.name}" /> -->
 	<grppackagename name="project.packagename" prefix="" grp="${project.grp}" projectname="${project.name}" />
 
-    <property name="actionscript.name" value="distriqt.extension.${project.packagename}.swc" />
+	<property name="actionscript.name" value="distriqt.extension.${project.packagename}.swc" />
 	<property name="default.name" value="distriqt.extension.${project.packagename}.default.swc" />
-	
+
 	<property name="android.name" value="distriqt.extension.${project.packagename}.android.jar" />
 	<property name="android.extclass" value="${package.name}.${project.name}Extension" />
 	<packagetores name="android.resources" value="distriqt-extension-${project.packagename}-res" />
 
 	<cleanchars name="ios.name" value="${project.grp}${project.name}" />
-	
+
 	<cleanchars name="windows.name" value="${project.grp}${project.name}" />
 
 	<taskdef resource="flexTasks.tasks" classpath="${air.sdk}/ant/lib/flexTasks.jar" />
-	
+
 	<dirname property="air.basedir" file="${ant.file.extension_air}" />
 
-	 
+		
 
 	<!-- 
 	//
@@ -85,7 +85,7 @@
 
 
 
-    <!-- 
+	<!-- 
 	//
 	//
 	//	BUILD TASKS 
@@ -94,14 +94,14 @@
 	-->
 
 
-    <target name="build" if="${output.air.enabled}" >
+	<target name="build" if="${output.air.enabled}" >
 
 		<antcall target="package" >
 			<param name="variant" value="" />
 		</antcall>
 
 		<antcall target="build_variants" />
-    </target>
+	</target>
 
 
 	<target name="build_variants" if="variants">
@@ -118,7 +118,7 @@
 
 	<target name="package" >
 		<echo message="PACKAGE VARIANT: ${variant}" />
-	
+
 		<antcall target="clean" />
 
 		<antcall target="prepare_ios" >
@@ -133,26 +133,26 @@
 		<antcall target="package_ane" >
 			<param name="variant" value="${variant}" />
 		</antcall>
-    </target>
+	</target>
 
 
-    <target name="clean" >
-        <delete dir="${output.dir}" />
-        <delete dir="platform" />
-        <delete>
+	<target name="clean" >
+		<delete dir="${output.dir}" />
+		<delete dir="platform" />
+		<delete>
 			<fileset dir=".">
 				<include name="*.build.xml" />
 			</fileset>
 		</delete>
-    </target>
+	</target>
 
 
-    <target name="package_ane" description="Package ANE" depends="version_write" >
+	<target name="package_ane" description="Package ANE" depends="version_write" >
 		
 		<variantname name="variantName" value="${variant}" />
 		<echo message="PACKAGE ANE: ${variantName}" />
 
-        <!-- Copy over library.swf to each platform output -->
+		<!-- Copy over library.swf to each platform output -->
 		<mkdir dir="${output.tmpdir}" />
 		<unzip src="${common.basedir}/${actionscript.dir}/bin/${actionscript.name}" dest="${output.tmpdir}" overwrite="true"/>
 		<copy file="${output.tmpdir}/library.swf" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" failonerror="true" if:true="${ios.enabled}" />
@@ -178,7 +178,7 @@
 			<arg line="-swc ${common.basedir}/${actionscript.dir}/bin/${actionscript.name}"/>
 			
 			<arg line="-platform iPhone-ARM -platformoptions ${ios.dir}/platform_ios${variant}.build.xml -C ${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir} ." if:true="${ios.enabled}" />
-			<arg line="-platform iPhone-x86 -platformoptions ${ios.dir}/platform_ios${variant}.build.xml -C ${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir} ." if:true="${ios.enabled}" />
+			<arg line="-platform iPhone-x86 -platformoptions ${ios.dir}/platform_ios${variant}.build.xml -C ${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir} ." if:true="${iosimulator.enabled}" />
 			<arg line="-platform appleTV-ARM -platformoptions ${ios.dir}/platform_tvos${variant}.build.xml -C ${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir} ." if:true="${tvos.enabled}" /> 
 			
 			<arg line="-platform Android-ARM -platformoptions ${android.dir}/platform_android${variant}.build.xml -C ${android.dir}/${android.outputdir} ." if:true="${android.enabled}" />
@@ -195,13 +195,23 @@
 		<mkdir dir="${common.basedir}/${output.dir}/${variant}" />
 		<copy file="${output.dir}/${variant}/${output.name}${variantName}.ane" todir="${common.basedir}/${output.dir}/${variant}" />
 		
+
+		<!-- Copy any dynamic iOS frameworks -->
+		<copy overwrite="true" todir="${common.basedir}/${output.dir}/${variant}/Frameworks" >
+			<fileset dir="${common.basedir}/${ios.dir}/libs-dynamic/${variant}" erroronmissingdir="false">
+				<include name="*.framework/**"/>
+				<exclude name="*.framework/Versions/**"/>
+				<include name="*.bundle/**"/>
+			</fileset>
+		</copy>
+
 	</target>
 
 
 
 
 
-    <!-- 
+	<!-- 
 	//
 	//
 	//	iOS 
@@ -209,56 +219,198 @@
 	//
 	-->
 
-    <target name="prepare_ios"  description="Copy iOS files for packaging" if="${ios.enabled}">
+	<target name="prepare_ios"  description="Copy iOS files for packaging" if="${ios.enabled}">
 		
+
+		<patternset id="libs.frameworks.bundles">
+			<include name="*.framework/**"/>
+			<exclude name="*.framework/Versions/**"/>
+			<include name="*.bundle/**"/>
+		</patternset>
+
 		
 		<fileset id="iphoneosdir" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" erroronmissingdir="false">
+			<exclude name="CoreNativeExtension.framework/**" unless:true="${ios.packagecoreframework}"/>
 			<include name="**/*"/>
 		</fileset>
 		<fileset id="iphonesimulatordir" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" erroronmissingdir="false">
+			<exclude name="CoreNativeExtension.framework/**" unless:true="${ios.packagecoreframework}"/>
 			<include name="**/*"/>
 		</fileset>
 		<fileset id="tvosdir" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" erroronmissingdir="false">
+			<exclude name="CoreNativeExtension.framework/**" unless:true="${ios.packagecoreframework}"/>
 			<include name="**/*"/>
 		</fileset>
 		<fileset id="codedir" dir="${common.basedir}/${ios.dir}/${ios.name}" erroronmissingdir="false" >
-			<include name="*.framework/**"/>
-			<exclude name="*.framework/Versions/**"/>
-			<include name="*.bundle/**"/>
+			<patternset refid="libs.frameworks.bundles"/>
 		</fileset>
 		<fileset id="libsvariantdir" dir="${common.basedir}/${ios.dir}/libs/${variant}" erroronmissingdir="false">
-			<include name="*.framework/**"/>
-			<exclude name="*.framework/Versions/**"/>
-			<include name="*.bundle/**"/>
+			<patternset refid="libs.frameworks.bundles"/>
+		</fileset>
+		<fileset id="libsdynamicvariantdir" dir="${common.basedir}/${ios.dir}/libs-dynamic/${variant}" erroronmissingdir="false">
+			<patternset refid="libs.frameworks.bundles"/>
 		</fileset>
 
-        <copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" >
+		<fileset id="libsxcframeowks" dir="${common.basedir}/${ios.dir}/libs/${variant}" erroronmissingdir="false">
+			<include name="*.xcframework" />
+		</fileset>
+
+		<!-- Copy frameworks (universal/dynamic) to extension platform build dir -->
+		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" >
 			<resources>
 				<union>
 					<resources refid="iphoneosdir" />
 					<resources refid="codedir" />
 					<resources refid="libsvariantdir" />
+					<resources refid="libsdynamicvariantdir" />
 				</union>
 			</resources>
 		</copy>
-        <copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" >
-            <resources>
+		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" >
+			<resources>
 				<union>
 					<resources refid="iphonesimulatordir" />
 					<resources refid="codedir" />
 					<resources refid="libsvariantdir" />
+					<resources refid="libsdynamicvariantdir" />
 				</union>
 			</resources>
 		</copy>
-        <copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" if:true="${tvos.enabled}">
-            <resources>
+		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" if:true="${tvos.enabled}">
+			<resources>
 				<union>
 					<resources refid="tvosdir" />
 					<resources refid="codedir" />
 					<resources refid="libsvariantdir" />
+					<resources refid="libsdynamicvariantdir" />
 				</union>
 			</resources>
 		</copy>
+
+		<!-- Handle xcframeworks - copy appropriate version to extension platform build dir -->
+		<for param="frameworkname">
+			<path>
+				<dirset dir="${common.basedir}/${ios.dir}/libs/${variant}" erroronmissingdir="false">
+					<include name="*.xcframework" />
+				</dirset>
+			</path>
+			<sequential>
+				<echo message="@{frameworkname}" />
+				<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" >
+					<fileset dir="@{frameworkname}/ios-armv7_arm64" erroronmissingdir="false">
+						<patternset refid="libs.frameworks.bundles"/>
+					</fileset>
+				</copy>
+				<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" >
+					<fileset dir="@{frameworkname}/ios-i386_x86_64-simulator" erroronmissingdir="false">
+						<patternset refid="libs.frameworks.bundles"/>
+					</fileset>
+				</copy>
+
+				<!-- TODO: tvOS ? -->
+				
+			</sequential>
+		</for>
+
+		<!-- Copy Dynamic frameworks to output -->
+		<copy overwrite="true" todir="${output.dir}/${variant}/Frameworks" >
+			<resources>
+				<union>
+					<resources refid="libsdynamicvariantdir" />
+				</union>
+			</resources>
+		</copy>
+
+
+		<!-- Strip other platforms from frameworks -->
+		<for param="frameworkpath" if:true="${isMacOS}">
+			<path>
+				<dirset dir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" >
+					<include name="*.framework" />
+				</dirset>
+			</path>
+			<sequential>
+				<var name="frameworklib" unset="true"/>
+				<if> 
+					<available file="@{frameworkpath}/Info.plist" />
+					<then>
+						<exec executable="defaults" failonerror="true" outputproperty="frameworklib" >
+							<arg line="read @{frameworkpath}/Info.plist CFBundleExecutable" />
+						</exec>
+					</then>
+					<else>
+						<basename property="frameworklib" file="@{frameworkpath}" suffix=".framework" />
+					</else>
+				</if>
+				<exec executable="lipo" failonerror="false">
+					<arg line="-remove i386 -output @{frameworkpath}/${frameworklib} @{frameworkpath}/${frameworklib}" />
+				</exec>
+				<exec executable="lipo" failonerror="false">
+					<arg line="-remove x86_64 -output @{frameworkpath}/${frameworklib} @{frameworkpath}/${frameworklib}" />
+				</exec>
+			</sequential>
+		</for>
+		<for param="frameworkpath" if:true="${isMacOS}">
+			<path>
+				<dirset dir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" >
+					<include name="*.framework" />
+				</dirset>
+			</path>
+			<sequential>
+				<var name="frameworklib" unset="true"/>
+				<if> 
+					<available file="@{frameworkpath}/Info.plist" />
+					<then>
+						<exec executable="defaults" failonerror="true" outputproperty="frameworklib" >
+							<arg line="read @{frameworkpath}/Info.plist CFBundleExecutable" />
+						</exec>
+					</then>
+					<else>
+						<basename property="frameworklib" file="@{frameworkpath}" suffix=".framework" />
+					</else>
+				</if>
+				<exec executable="lipo" failonerror="false">
+					<arg line="-remove armv7 -output @{frameworkpath}/${frameworklib} @{frameworkpath}/${frameworklib}" />
+				</exec>
+				<exec executable="lipo" failonerror="false">
+					<arg line="-remove arm64 -output @{frameworkpath}/${frameworklib} @{frameworkpath}/${frameworklib}" />
+				</exec>
+			</sequential>
+		</for>
+		<condition property="tvOSandmacOS" >
+			<and>
+				<istrue value="${tvos.enabled}" />
+				<istrue value="${macOS}" />
+			</and>
+		</condition>
+		<for param="frameworkpath" if:true="${tvOSandmacOS}">
+			<path>
+				<dirset dir="${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" >
+					<include name="*.framework" />
+				</dirset>
+			</path>
+			<sequential>
+				<var name="frameworklib" unset="true"/>
+				<if> 
+					<available file="@{frameworkpath}/Info.plist" />
+					<then>
+						<exec executable="defaults" failonerror="true" outputproperty="frameworklib" >
+							<arg line="read @{frameworkpath}/Info.plist CFBundleExecutable" />
+						</exec>
+					</then>
+					<else>
+						<basename property="frameworklib" file="@{frameworkpath}" suffix=".framework" />
+					</else>
+				</if>
+				<!-- TODO: tvOS ? -->
+				<!-- <exec executable="lipo" failonerror="false">
+					<arg line="-remove armv7 -output @{frameworkpath}/${frameworklib} @{frameworkpath}/${frameworklib}" />
+				</exec>
+				<exec executable="lipo" failonerror="false">
+					<arg line="-remove arm64 -output @{frameworkpath}/${frameworklib} @{frameworkpath}/${frameworklib}" />
+				</exec> -->
+			</sequential>
+		</for>
 
 		<delete failonerror="false">
 			<fileset dir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}">
@@ -278,9 +430,9 @@
 
 	</target>
 
-    <target name="prepare_ios_platform" >
+	<target name="prepare_ios_platform" >
 		<property name="version" value="${version_major}.${version_minor}.${version_build}" />
-        <fileset id="platform.ios.pods.fs" dir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" casesensitive="yes">
+		<fileset id="platform.ios.pods.fs" dir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" casesensitive="yes">
 			<include name="**/*.a"/>
 			<exclude name="**/lib${ios.name}.a" />
 			<exclude name="**/libPods*.a" />
@@ -316,7 +468,7 @@
 
 
 
-    <!-- 
+	<!-- 
 	//
 	//
 	//	ANDROID 
@@ -324,7 +476,7 @@
 	//
 	-->
 
-    <target name="prepare_android" description="Copy Android files for packaging" >
+	<target name="prepare_android" description="Copy Android files for packaging" >
 		<delete dir="${common.basedir}/${android.dir}/${android.outputdir}/android-profile" />
 		
 		<mkdir dir="${android.dir}/${output.tmpdir}" />
@@ -360,16 +512,16 @@
 		
 		<delete dir="${android.dir}/${output.tmpdir}" />
 
+		<fileset dir="${common.basedir}/${android.dir}/externals/" erroronmissingdir="false" id="filesetexternals" >
+			<include name="*.aar" />
+		</fileset>
+		<fileset dir="${common.basedir}/${android.dir}/libs/${variant}" erroronmissingdir="false" id="filesetvariant">
+			<include name="*.aar" />
+		</fileset>
+		<fileset dir="${common.basedir}/${android.dir}/dependencies" erroronmissingdir="false" id="filesetdependencies">
+			<include name="*.aar" />
+		</fileset>
 		<foreach target="explode_aar" param="explode_aar_file">
-			<fileset dir="${common.basedir}/${android.dir}/externals/" erroronmissingdir="false" id="filesetexternals" >
-				<include name="*.aar" />
-			</fileset>
-			<fileset dir="${common.basedir}/${android.dir}/libs/${variant}" erroronmissingdir="false" id="filesetvariant">
-				<include name="*.aar" />
-			</fileset>
-			<fileset dir="${common.basedir}/${android.dir}/dependencies" erroronmissingdir="false" id="filesetdependencies">
-				<include name="*.aar" />
-			</fileset>
 			<path>
 				<union>
 					<resources refid="filesetexternals" />
@@ -412,11 +564,11 @@
 
 
 	</target>
-	
-	
-	
 
-    <target name="prepare_android_platform" >
+
+
+
+	<target name="prepare_android_platform" >
 		<fileset id="platform.android.jar.fs" dir="${android.dir}/${android.outputdir}" casesensitive="yes">
 			<include name="**/*.jar"/>
 			<exclude name="**/${android.name}" />
@@ -442,20 +594,41 @@
 	</target>
 
 
+	<scriptdef language="javascript" name="striplangcode">
+		<attribute name="name" />
+		<attribute name="value" /> 
+		<![CDATA[
+			project.setProperty( 
+				attributes.get( "name" ), 
+				attributes.get( "value" )
+					.replace( /-ui-/g, "-" )
+			);
+		]]>
+	</scriptdef>
+
 	<target name="explode_aar">
 		<basename property="explode_aar_name" file="${explode_aar_file}" suffix=".aar" />
-		<echo message="explode ${explode_aar_file} ${explode_aar_name}" />
+		<var name="explode_aar_name_lang" unset="true"/>
+        <striplangcode name="explode_aar_name_lang" value="${explode_aar_name}" />
+		<echo message="explode ${explode_aar_file} ${explode_aar_name} ${explode_aar_name_lang}" />
+		<!-- <echo message="explode ${explode_aar_file} ${explode_aar_name}" /> -->
 
 		<mkdir dir="${android.dir}/${output.tmpdir}" />
 		<unzip src="${explode_aar_file}" dest="${android.dir}/${output.tmpdir}" overwrite="true"/>
 
 		<copy file="${android.dir}/${output.tmpdir}/classes.jar" tofile="${android.dir}/${android.outputdir}/${explode_aar_name}.jar" />
-		<copy includeEmptyDirs="false" overwrite="true" todir="${android.dir}/${android.outputdir}/${explode_aar_name}-res" failonerror="false">
+		<copy includeEmptyDirs="false" overwrite="true" todir="${android.dir}/${android.outputdir}/${explode_aar_name_lang}-res" failonerror="false">
+		<!-- <copy includeEmptyDirs="false" overwrite="true" todir="${android.dir}/${android.outputdir}/${explode_aar_name}-res" failonerror="false"> -->
 			<fileset dir="${android.dir}/${output.tmpdir}/res/" />
 		</copy>
 
 		<copy includeEmptyDirs="false" overwrite="true" failonerror="false" quiet="true" todir="${android.dir}/${android.outputdir}/libs">
 			<fileset dir="${android.dir}/${output.tmpdir}/jni/" />
+		</copy>
+		<copy includeEmptyDirs="false" overwrite="true" failonerror="false" quiet="true" todir="${android.dir}/${android.outputdir}">
+			<fileset dir="${android.dir}/${output.tmpdir}/libs/" >
+				<include name="*.jar" />
+			</fileset>
 		</copy>
 
 		<delete dir="${android.dir}/${output.tmpdir}" />
@@ -503,7 +676,7 @@
 		</if>
 
 	</target>
-	
+
 
 
 
@@ -517,8 +690,8 @@
 	//
 	-->
 
-    <target name="docs" description="">
-    </target>
+	<target name="docs" description="">
+	</target>
 
 
 </project>

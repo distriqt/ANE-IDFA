@@ -18,6 +18,8 @@ package com.distriqt.test.idfa
 	import com.distriqt.extension.idfa.IDFA;
 	import com.distriqt.extension.idfa.events.IDFAEvent;
 	
+	import flash.events.ErrorEvent;
+	
 	import starling.display.Sprite;
 	
 	public class IDFATests extends Sprite
@@ -55,7 +57,8 @@ package com.distriqt.test.idfa
 		        if (IDFA.isSupported)
 		        {
 			        log( "IDFA version:     " + IDFA.service.version );
-		        }
+					IDFA.service.addEventListener( ErrorEvent.ERROR, errorHandler );
+				}
 	        }
 	        catch (e:Error)
 	        {
@@ -63,12 +66,24 @@ package com.distriqt.test.idfa
         }
 
 		
+		private function errorHandler( event:ErrorEvent ):void
+		{
+			log( "ERROR: " + event.text );
+		}
+		
+		
+		//
+		//
+		//
+		
+		
 		public function getIDFA():void
 		{
 			log( "getIDFA()" );
 			if (IDFA.isSupported)
 			{
 				IDFA.service.addEventListener( IDFAEvent.COMPLETE, idfaCompleteHandler );
+				IDFA.service.addEventListener( IDFAEvent.ERROR, idfaErrorHandler );
 				IDFA.service.getIDFA();
 			}
 		}
@@ -79,7 +94,10 @@ package com.distriqt.test.idfa
 			log( "isLimitAdTrackingEnabled: " + event.isLimitAdTrackingEnabled );
 		}
 	    
-	    
+	    private function idfaErrorHandler( event:IDFAEvent ):void
+		{
+			log( "idfaErrorHandler" )
+		}
 	    
 	    //
 	    //  TRACKING ENABLED

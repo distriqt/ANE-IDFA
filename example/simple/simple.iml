@@ -11,9 +11,6 @@
             <entry library-id="b00a70a2-1fa0-48b6-93f2-1d8006454f96">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.distriqt.androidsupport.V4" library-level="application">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="com.distriqt.playservices.Ads" library-level="application">
               <dependency linkage="Merged" />
             </entry>

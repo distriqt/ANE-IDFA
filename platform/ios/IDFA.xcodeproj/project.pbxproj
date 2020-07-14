@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E32A9E0D24BD6DD900D9FF4C /* CoreNativeExtension.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32A9E0C24BD6DD900D9FF4C /* CoreNativeExtension.xcframework */; };
 		E33ED8AA1BBD15AE00D23A8C /* DTIDFAEventDispatcherDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E33ED8A91BBD15AE00D23A8C /* DTIDFAEventDispatcherDelegate.h */; };
 		E34D85B31BB0D81B000DA3F9 /* DTIDFATag.h in Headers */ = {isa = PBXBuildFile; fileRef = E34D85B21BB0D81B000DA3F9 /* DTIDFATag.h */; };
 		E34D85BA1BB0D88D000DA3F9 /* DTIDFAEventDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E34D85B81BB0D88D000DA3F9 /* DTIDFAEventDispatcher.h */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E32A9E0C24BD6DD900D9FF4C /* CoreNativeExtension.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CoreNativeExtension.xcframework; path = ../../../../../supportlibs/corelibraries/build/ios/CoreNativeExtension.xcframework; sourceTree = "<group>"; };
 		E33692DA17CF44850021F35A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E33ED8A91BBD15AE00D23A8C /* DTIDFAEventDispatcherDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIDFAEventDispatcherDelegate.h; sourceTree = "<group>"; };
 		E34D85B21BB0D81B000DA3F9 /* DTIDFATag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIDFATag.h; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			files = (
 				E3FD7C821898742800881968 /* UIKit.framework in Frameworks */,
 				E3F4A7B6153D8C110057A446 /* Foundation.framework in Frameworks */,
+				E32A9E0D24BD6DD900D9FF4C /* CoreNativeExtension.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +92,7 @@
 		E3F4A7B4153D8C110057A446 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E32A9E0C24BD6DD900D9FF4C /* CoreNativeExtension.xcframework */,
 				E33692DA17CF44850021F35A /* UIKit.framework */,
 				E3F4A7B5153D8C110057A446 /* Foundation.framework */,
 			);
@@ -161,15 +165,16 @@
 		E3F4A7A9153D8C110057A446 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = distriqt;
 			};
 			buildConfigurationList = E3F4A7AC153D8C110057A446 /* Build configuration list for PBXProject "IDFA" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = E3F4A7A7153D8C110057A446;
 			productRefGroup = E3F4A7B3153D8C110057A446 /* Products */;
@@ -200,6 +205,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -221,6 +227,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = /Users/marchbold/work/distriqt/extensions/supportlibs/corelibraries/build/ios;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -247,6 +254,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -267,6 +275,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = /Users/marchbold/work/distriqt/extensions/supportlibs/corelibraries/build/ios;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_THUMB_SUPPORT = NO;
@@ -287,10 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/IDFA.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/marchbold/work/distriqt/extensions/supportlibs/corelibraries/platform/ios/build/Release-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IDFA/IDFA-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -305,10 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/IDFA.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/marchbold/work/distriqt/extensions/supportlibs/corelibraries/platform/ios/build/Release-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IDFA/IDFA-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;

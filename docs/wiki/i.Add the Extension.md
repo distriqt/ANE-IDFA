@@ -55,7 +55,7 @@ will avoid conflicts, allowing you to use multiple extensions in the one applica
 This extension requires the following Google Play Services:
 
 - [com.distriqt.playservices.Base.ane](https://github.com/distriqt/ANE-GooglePlayServices/raw/master/lib/com.distriqt.playservices.Base.ane)
-- [com.distriqt.playservices.Ads.ane](https://github.com/distriqt/ANE-GooglePlayServices/raw/master/lib/com.distriqt.playservices.Ads.ane)
+- [com.distriqt.playservices.AdsIdentifier.ane](https://github.com/distriqt/ANE-GooglePlayServices/raw/master/lib/com.distriqt.playservices.AdsIdentifier.ane)
 
 You must include the above native extensions in your application along with this extension, 
 and you need to ensure they are packaged with your application.
@@ -81,7 +81,7 @@ The following should be added to your `extensions` node in your application desc
     <extensionID>com.distriqt.Core</extensionID>
 
     <extensionID>com.distriqt.playservices.Base</extensionID>
-    <extensionID>com.distriqt.playservices.Ads</extensionID>
+    <extensionID>com.distriqt.playservices.AdsIdentifier</extensionID>
 
     <extensionID>androidx.core</extensionID>
 </extensions>
