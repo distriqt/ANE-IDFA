@@ -11,15 +11,17 @@ Setup the Extension
 
 Usage
 
-1. [[Get Advertising Identifier|u.Get Advertising Identifier]]
+1. [[Authorisation|u.Get Advertising Identifier#authorisation]]
+2. [[Get Advertising Identifier|u.Get Advertising Identifier#advertising-identifier]]
 
 
 ---
 
 Help
 
+- [[Migrating to v5|h.Migrating#version-5]]
+- [[Migrating to v4|h.Migrating#version-4]]
 - [[Migrating to AndroidX|h.Migrating to AndroidX]]
-- [[Migrating to v4|h.Migrating to v4]]
 
 
 ---

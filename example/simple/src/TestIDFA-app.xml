@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/26.0">
+<application xmlns="http://ns.adobe.com/air/application/33.1">
     <id>com.distriqt.test</id>
     <filename>TestIDFA</filename>
     <name>TestIDFA</name>
@@ -10,6 +10,7 @@
         <autoOrients>true</autoOrients>
         <fullScreen>false</fullScreen>
         <visible>true</visible>
+        <renderMode>direct</renderMode>
     </initialWindow>
 
     <icon>
@@ -20,39 +21,46 @@
         <image48x48>icons/icon48x48.png</image48x48>
         <image57x57>icons/icon57x57.png</image57x57>
         <image72x72>icons/icon72x72.png</image72x72>
+        <image76x76>icons/icon76x76.png</image76x76>
         <image114x114>icons/icon114x114.png</image114x114>
+        <image120x120>icons/icon120x120.png</image120x120>
         <image128x128>icons/icon128x128.png</image128x128>
+        <image152x152>icons/icon152x152.png</image152x152>
         <image512x512>icons/icon512x512.png</image512x512>
     </icon>
 
     <iPhone>
         <InfoAdditions><![CDATA[
-			<key>UIDeviceFamily</key>
-			<array>
-				<string>1</string>
-				<string>2</string>
-			</array>
-		]]></InfoAdditions>
+            <key>UIDeviceFamily</key>
+            <array>
+                <string>1</string>
+                <string>2</string>
+            </array>
+
+            <key>NSUserTrackingUsageDescription</key>
+            <string>This identifier will be used to deliver personalized ads to you.</string>
+
+        ]]></InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>
         <Entitlements>
             <![CDATA[
-			]]>
+            ]]>
         </Entitlements>
     </iPhone>
 
     <android>
         <manifestAdditions><![CDATA[
-			<manifest android:installLocation="auto" >
+            <manifest android:installLocation="auto" >
 
-				<uses-permission android:name="android.permission.INTERNET"/>
+                <uses-permission android:name="android.permission.INTERNET"/>
 
-				<application android:hardwareAccelerated="true">
+                <application android:hardwareAccelerated="true">
 
-				    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+                    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 
-				</application>
-			</manifest>
-		]]></manifestAdditions>
+                </application>
+            </manifest>
+        ]]></manifestAdditions>
     </android>
 
     <extensions>

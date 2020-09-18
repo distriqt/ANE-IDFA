@@ -55,7 +55,7 @@ will avoid conflicts, allowing you to use multiple extensions in the one applica
 This extension requires the following Google Play Services:
 
 - [com.distriqt.playservices.Base.ane](https://github.com/distriqt/ANE-GooglePlayServices/raw/master/lib/com.distriqt.playservices.Base.ane)
-- [com.distriqt.playservices.Ads.ane](https://github.com/distriqt/ANE-GooglePlayServices/raw/master/lib/com.distriqt.playservices.Ads.ane)
+- [com.distriqt.playservices.AdsIdentifier.ane](https://github.com/distriqt/ANE-GooglePlayServices/raw/master/lib/com.distriqt.playservices.AdsIdentifier.ane)
 
 You must include the above native extensions in your application along with this extension, 
 and you need to ensure they are packaged with your application.
@@ -81,7 +81,7 @@ The following should be added to your `extensions` node in your application desc
     <extensionID>com.distriqt.Core</extensionID>
 
     <extensionID>com.distriqt.playservices.Base</extensionID>
-    <extensionID>com.distriqt.playservices.Ads</extensionID>
+    <extensionID>com.distriqt.playservices.AdsIdentifier</extensionID>
 
     <extensionID>androidx.core</extensionID>
 </extensions>
@@ -109,6 +109,45 @@ You need to make sure you add the `android.permission.INTERNET` permission and t
 
     </application>
 </manifest>
+```
+
+
+
+## iOS 
+
+This ANE has been updated for iOS 14 and requires a minimum of the iOS 14 SDK to be linked with your application in order to have access to the iOS 14 app tracking transparency features.
+
+Make sure you provide a valid iOS 14+ SDK when packagaging. Currently you do this by packaging with the iOS SDK, see [here](https://airnativeextensions.github.io/tutorials/ios-sdk-custom) for more.
+
+
+
+### Info Additions
+
+You must specify the usage descriptions for authorisation dialog by adding the following string to your InfoAdditions:
+
+```xml
+<key>NSUserTrackingUsageDescription</key>
+<string>This identifier will be used to deliver personalized ads to you.</string>
+```
+
+You can customise the value of this string as you require for your application.
+
+This should be added to the Info Additions node :
+
+```xml
+<iPhone>
+    <InfoAdditions><![CDATA[
+
+        <key>NSUserTrackingUsageDescription</key>
+        <string>This identifier will be used to deliver personalized ads to you.</string>
+
+    )></InfoAdditions>
+    <requestedDisplayResolution>high</requestedDisplayResolution>
+    <Entitlements>
+        <![CDATA[
+        )>
+    </Entitlements>
+</iPhone>
 ```
 
 

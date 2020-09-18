@@ -7,16 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DTIDFAEventDispatcherDelegate.h"
+#import "DTIDFAContext.h"
 
 
 @interface DTIDFAController : NSObject
 
-@property id<DTIDFAEventDispatcherDelegate> delegate;
+@property id<DTIDFAContext> extContext;
 
 
 -(void) getIDFA;
 
 -(Boolean) advertisingTrackingEnabled;
+
+
+//
+//
+//    AUTHORISATION
+//
+//
+
+-(NSString*) authorisationStatus;
+
+-(Boolean) requestAuthorisation;
+
 
 @end

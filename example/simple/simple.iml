@@ -11,13 +11,13 @@
             <entry library-id="b00a70a2-1fa0-48b6-93f2-1d8006454f96">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.distriqt.playservices.Ads" library-level="application">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="com.distriqt.playservices.Base" library-level="application">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="androidx.core" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.distriqt.playservices.AdsIdentifier" library-level="application">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -27,23 +27,16 @@
         <packaging-air-desktop />
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/../starling/src/TestIDFA-app.xml" package-file-name="simple">
           <files-to-package>
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-375w-667h@2x.png" path-in-package="Default-375w-667h@2x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-414w-736h@3x.png" path-in-package="Default-414w-736h@3x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default.png" path-in-package="Default.png" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/icons" path-in-package="icons" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Dropbox/work/certs/com.distriqt.test/android/distriqt_air_selfsign_cert.p12" use-temp-certificate="false" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Google Drive/work/certs/com.distriqt.test/android/distriqt_air_selfsign_cert.p12" use-temp-certificate="false" />
         </packaging-android>
         <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/../starling/src/TestIDFA-app.xml" package-file-name="simple">
           <files-to-package>
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-375w-667h@2x.png" path-in-package="Default-375w-667h@2x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-414w-736h@3x.png" path-in-package="Default-414w-736h@3x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default.png" path-in-package="Default.png" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/icons" path-in-package="icons" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Assets.car" path-in-package="Assets.car" />
           </files-to-package>
-          <AirSigningOptions sdk="$MODULE_DIR$/../../../../../../../sdks/ios/iPhoneOS10.3.sdk" keystore-path="$USER_HOME$/Dropbox/work/certs/distriqt/development/Certificates.p12" provisioning-profile-path="$USER_HOME$/Dropbox/work/certs/com.distriqt.test/development/distriqt_test_profile.mobileprovision" />
+          <AirSigningOptions sdk="$MODULE_DIR$/../../../../../../../sdks/ios/iPhoneOS14.0.sdk" keystore-path="$USER_HOME$/Google Drive/work/certs/distriqt/development/Certificates.p12" provisioning-profile-path="$USER_HOME$/Google Drive/work/certs/com.distriqt.test/development/distriqt_test_profile.mobileprovision" />
         </packaging-ios>
       </configuration>
     </configurations>
@@ -69,8 +62,8 @@
     </orderEntry>
     <orderEntry type="library" exported="" name="com.distriqt.Core" level="application" />
     <orderEntry type="library" exported="" name="com.distriqt.androidsupport.V4" level="application" />
-    <orderEntry type="library" exported="" name="com.distriqt.playservices.Ads" level="application" />
     <orderEntry type="library" exported="" name="com.distriqt.playservices.Base" level="application" />
     <orderEntry type="library" exported="" name="androidx.core" level="application" />
+    <orderEntry type="library" exported="" name="com.distriqt.playservices.AdsIdentifier" level="application" />
   </component>
 </module>

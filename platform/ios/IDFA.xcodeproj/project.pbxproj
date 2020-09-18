@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		E32A9E0D24BD6DD900D9FF4C /* CoreNativeExtension.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32A9E0C24BD6DD900D9FF4C /* CoreNativeExtension.xcframework */; };
-		E33ED8AA1BBD15AE00D23A8C /* DTIDFAEventDispatcherDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E33ED8A91BBD15AE00D23A8C /* DTIDFAEventDispatcherDelegate.h */; };
+		E33ED8AA1BBD15AE00D23A8C /* DTIDFAContext.h in Headers */ = {isa = PBXBuildFile; fileRef = E33ED8A91BBD15AE00D23A8C /* DTIDFAContext.h */; };
 		E34D85B31BB0D81B000DA3F9 /* DTIDFATag.h in Headers */ = {isa = PBXBuildFile; fileRef = E34D85B21BB0D81B000DA3F9 /* DTIDFATag.h */; };
-		E34D85BA1BB0D88D000DA3F9 /* DTIDFAEventDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E34D85B81BB0D88D000DA3F9 /* DTIDFAEventDispatcher.h */; };
-		E34D85BB1BB0D88D000DA3F9 /* DTIDFAEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E34D85B91BB0D88D000DA3F9 /* DTIDFAEventDispatcher.m */; };
+		E34D85BA1BB0D88D000DA3F9 /* DTIDFAAIRExtensionContext.h in Headers */ = {isa = PBXBuildFile; fileRef = E34D85B81BB0D88D000DA3F9 /* DTIDFAAIRExtensionContext.h */; };
+		E34D85BB1BB0D88D000DA3F9 /* DTIDFAAIRExtensionContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E34D85B91BB0D88D000DA3F9 /* DTIDFAAIRExtensionContext.m */; };
 		E3638B951F1CB34C005EDAF9 /* DTIDFAController.h in Headers */ = {isa = PBXBuildFile; fileRef = E3638B921F1CB34C005EDAF9 /* DTIDFAController.h */; };
 		E3638B961F1CB34C005EDAF9 /* DTIDFAController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3638B931F1CB34C005EDAF9 /* DTIDFAController.m */; };
 		E3638B991F1CB35E005EDAF9 /* DTIDFAEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = E3638B971F1CB35E005EDAF9 /* DTIDFAEvent.h */; };
 		E3638B9A1F1CB35E005EDAF9 /* DTIDFAEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E3638B981F1CB35E005EDAF9 /* DTIDFAEvent.m */; };
+		E37FA3362514887100CE7CE0 /* DTIDFAAuthorisationEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = E37FA3342514887100CE7CE0 /* DTIDFAAuthorisationEvent.h */; };
+		E37FA3372514887100CE7CE0 /* DTIDFAAuthorisationEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E37FA3352514887100CE7CE0 /* DTIDFAAuthorisationEvent.m */; };
 		E3F4A7B6153D8C110057A446 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F4A7B5153D8C110057A446 /* Foundation.framework */; };
 		E3F4A7BC153D8C110057A446 /* IDFA.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F4A7BB153D8C110057A446 /* IDFA.m */; };
 		E3F4A7C3153D8C4A0057A446 /* FlashRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = E3F4A7C2153D8C4A0057A446 /* FlashRuntimeExtensions.h */; };
@@ -25,14 +27,16 @@
 /* Begin PBXFileReference section */
 		E32A9E0C24BD6DD900D9FF4C /* CoreNativeExtension.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CoreNativeExtension.xcframework; path = ../../../../../supportlibs/corelibraries/build/ios/CoreNativeExtension.xcframework; sourceTree = "<group>"; };
 		E33692DA17CF44850021F35A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		E33ED8A91BBD15AE00D23A8C /* DTIDFAEventDispatcherDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIDFAEventDispatcherDelegate.h; sourceTree = "<group>"; };
+		E33ED8A91BBD15AE00D23A8C /* DTIDFAContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIDFAContext.h; sourceTree = "<group>"; };
 		E34D85B21BB0D81B000DA3F9 /* DTIDFATag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIDFATag.h; sourceTree = "<group>"; };
-		E34D85B81BB0D88D000DA3F9 /* DTIDFAEventDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIDFAEventDispatcher.h; sourceTree = "<group>"; };
-		E34D85B91BB0D88D000DA3F9 /* DTIDFAEventDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTIDFAEventDispatcher.m; sourceTree = "<group>"; };
+		E34D85B81BB0D88D000DA3F9 /* DTIDFAAIRExtensionContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIDFAAIRExtensionContext.h; sourceTree = "<group>"; };
+		E34D85B91BB0D88D000DA3F9 /* DTIDFAAIRExtensionContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTIDFAAIRExtensionContext.m; sourceTree = "<group>"; };
 		E3638B921F1CB34C005EDAF9 /* DTIDFAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIDFAController.h; sourceTree = "<group>"; };
 		E3638B931F1CB34C005EDAF9 /* DTIDFAController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTIDFAController.m; sourceTree = "<group>"; };
 		E3638B971F1CB35E005EDAF9 /* DTIDFAEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIDFAEvent.h; sourceTree = "<group>"; };
 		E3638B981F1CB35E005EDAF9 /* DTIDFAEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTIDFAEvent.m; sourceTree = "<group>"; };
+		E37FA3342514887100CE7CE0 /* DTIDFAAuthorisationEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTIDFAAuthorisationEvent.h; sourceTree = "<group>"; };
+		E37FA3352514887100CE7CE0 /* DTIDFAAuthorisationEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTIDFAAuthorisationEvent.m; sourceTree = "<group>"; };
 		E3F4A7B2153D8C110057A446 /* libIDFA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIDFA.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F4A7B5153D8C110057A446 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E3F4A7B9153D8C110057A446 /* IDFA-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDFA-Prefix.pch"; sourceTree = "<group>"; };
@@ -54,6 +58,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E345F23D25147C1700C9503E /* air */ = {
+			isa = PBXGroup;
+			children = (
+				E3F4A7BB153D8C110057A446 /* IDFA.m */,
+				E34D85B81BB0D88D000DA3F9 /* DTIDFAAIRExtensionContext.h */,
+				E34D85B91BB0D88D000DA3F9 /* DTIDFAAIRExtensionContext.m */,
+				E3F4A7C2153D8C4A0057A446 /* FlashRuntimeExtensions.h */,
+			);
+			path = air;
+			sourceTree = "<group>";
+		};
 		E3638B911F1CB34C005EDAF9 /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +83,8 @@
 			children = (
 				E3638B971F1CB35E005EDAF9 /* DTIDFAEvent.h */,
 				E3638B981F1CB35E005EDAF9 /* DTIDFAEvent.m */,
+				E37FA3342514887100CE7CE0 /* DTIDFAAuthorisationEvent.h */,
+				E37FA3352514887100CE7CE0 /* DTIDFAAuthorisationEvent.m */,
 			);
 			path = events;
 			sourceTree = "<group>";
@@ -102,14 +119,12 @@
 		E3F4A7B7153D8C110057A446 /* IDFA */ = {
 			isa = PBXGroup;
 			children = (
-				E3F4A7BB153D8C110057A446 /* IDFA.m */,
+				E345F23D25147C1700C9503E /* air */,
 				E3638B911F1CB34C005EDAF9 /* controller */,
 				E3638B941F1CB34C005EDAF9 /* events */,
 				E3F4A7B8153D8C110057A446 /* Supporting Files */,
 				E34D85B21BB0D81B000DA3F9 /* DTIDFATag.h */,
-				E34D85B81BB0D88D000DA3F9 /* DTIDFAEventDispatcher.h */,
-				E34D85B91BB0D88D000DA3F9 /* DTIDFAEventDispatcher.m */,
-				E33ED8A91BBD15AE00D23A8C /* DTIDFAEventDispatcherDelegate.h */,
+				E33ED8A91BBD15AE00D23A8C /* DTIDFAContext.h */,
 			);
 			path = IDFA;
 			sourceTree = "<group>";
@@ -117,7 +132,6 @@
 		E3F4A7B8153D8C110057A446 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E3F4A7C2153D8C4A0057A446 /* FlashRuntimeExtensions.h */,
 				E3F4A7B9153D8C110057A446 /* IDFA-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -130,11 +144,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E34D85BA1BB0D88D000DA3F9 /* DTIDFAEventDispatcher.h in Headers */,
+				E34D85BA1BB0D88D000DA3F9 /* DTIDFAAIRExtensionContext.h in Headers */,
 				E3F4A7C3153D8C4A0057A446 /* FlashRuntimeExtensions.h in Headers */,
-				E33ED8AA1BBD15AE00D23A8C /* DTIDFAEventDispatcherDelegate.h in Headers */,
+				E33ED8AA1BBD15AE00D23A8C /* DTIDFAContext.h in Headers */,
 				E3638B991F1CB35E005EDAF9 /* DTIDFAEvent.h in Headers */,
 				E34D85B31BB0D81B000DA3F9 /* DTIDFATag.h in Headers */,
+				E37FA3362514887100CE7CE0 /* DTIDFAAuthorisationEvent.h in Headers */,
 				E3638B951F1CB34C005EDAF9 /* DTIDFAController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,7 +180,7 @@
 		E3F4A7A9153D8C110057A446 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = distriqt;
 			};
 			buildConfigurationList = E3F4A7AC153D8C110057A446 /* Build configuration list for PBXProject "IDFA" */;
@@ -194,7 +209,8 @@
 				E3638B961F1CB34C005EDAF9 /* DTIDFAController.m in Sources */,
 				E3F4A7BC153D8C110057A446 /* IDFA.m in Sources */,
 				E3638B9A1F1CB35E005EDAF9 /* DTIDFAEvent.m in Sources */,
-				E34D85BB1BB0D88D000DA3F9 /* DTIDFAEventDispatcher.m in Sources */,
+				E37FA3372514887100CE7CE0 /* DTIDFAAuthorisationEvent.m in Sources */,
+				E34D85BB1BB0D88D000DA3F9 /* DTIDFAAIRExtensionContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +235,7 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -244,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -268,6 +285,7 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -286,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

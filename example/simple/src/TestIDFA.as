@@ -16,6 +16,7 @@
 package
 {
 	import com.distriqt.extension.idfa.IDFA;
+	import com.distriqt.extension.idfa.TrackingAuthorisationStatus;
 	import com.distriqt.extension.idfa.events.IDFAEvent;
 	
 	import flash.display.Sprite;
@@ -61,13 +62,13 @@ package
 			stage.addEventListener( Event.RESIZE, stage_resizeHandler, false, 0, true );
 			stage.addEventListener( MouseEvent.CLICK, mouseClickHandler, false, 0, true );
 			
-			
 			try
 			{
-				IDFA.init( APP_KEY );
-				
 				message( "IDFA Supported: " + IDFA.isSupported );
 				message( "IDFA Version:   " + IDFA.service.version );
+				
+				IDFA.service.addEventListener( IDFAEvent.COMPLETE, idfaCompleteHandler );
+				
 			}
 			catch (e:Error)
 			{
@@ -99,8 +100,15 @@ package
 			message( "getIDFA()" );
 			if (IDFA.isSupported)
 			{
-				IDFA.service.addEventListener( IDFAEvent.COMPLETE, idfaCompleteHandler );
-				IDFA.service.getIDFA();
+				IDFA.service.requestAuthorisation(
+						function ( status:String ):void
+						{
+							if (status == TrackingAuthorisationStatus.AUTHORISED)
+							{
+								IDFA.service.getIDFA();
+							}
+						}
+				);
 			}
 		}
 		

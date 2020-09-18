@@ -18,7 +18,24 @@ package com.distriqt.extension.idfa
 	import flash.events.ErrorEvent;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import flash.utils.setTimeout;
 	
+	
+	/**
+	 * @eventType com.distriqt.extension.idfa.events.IDFAEvent.COMPLETE
+	 */
+	[Event(name="idfa:complete", type="com.distriqt.extension.idfa.events.IDFAEvent")]
+	
+	/**
+	 * @eventType com.distriqt.extension.idfa.events.IDFAEvent.ERROR
+	 */
+	[Event(name="idfa:error", type="com.distriqt.extension.idfa.events.IDFAEvent")]
+	
+	
+	/**
+	 * @eventType com.distriqt.extension.idfa.events.IDFAAuthorisationEvent.CHANGED
+	 */
+	[Event(name="idfa:authorisation:changed", type="com.distriqt.extension.idfa.events.IDFAAuthorisationEvent")]
 	
 	
 	/**	
@@ -152,6 +169,32 @@ package com.distriqt.extension.idfa
 		
 		public function get advertisingTrackingEnabled():Boolean
 		{
+			return false;
+		}
+		
+		
+		
+		//
+		//
+		//	AUTHORISATION
+		//
+		//
+		
+		public function authorisationStatus():String
+		{
+			return TrackingAuthorisationStatus.AUTHORISED;
+		}
+		
+		
+		public function requestAuthorisation( callback:Function=null ):Boolean
+		{
+			if (callback != null)
+			{
+				setTimeout( function():void
+							{
+								callback( authorisationStatus() );
+							}, 20 )
+			}
 			return false;
 		}
 		

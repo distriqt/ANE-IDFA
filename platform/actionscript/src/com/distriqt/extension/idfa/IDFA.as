@@ -15,6 +15,7 @@
  */
 package com.distriqt.extension.idfa
 {
+	import com.distriqt.extension.idfa.events.IDFAAuthorisationEvent;
 	import com.distriqt.extension.idfa.events.IDFAEvent;
 	
 	import flash.events.Event;
@@ -22,6 +23,8 @@ package com.distriqt.extension.idfa
 	import flash.events.EventDispatcher;
 	import flash.events.StatusEvent;
 	import flash.external.ExtensionContext;
+	import flash.utils.setTimeout;
+	
 	
 	/**
 	 * @eventType com.distriqt.extension.idfa.events.IDFAEvent.COMPLETE
@@ -32,6 +35,12 @@ package com.distriqt.extension.idfa
 	 * @eventType com.distriqt.extension.idfa.events.IDFAEvent.ERROR
 	 */
 	[Event(name="idfa:error", type="com.distriqt.extension.idfa.events.IDFAEvent")]
+	
+	
+	/**
+	 * @eventType com.distriqt.extension.idfa.events.IDFAAuthorisationEvent.CHANGED
+	 */
+	[Event(name="idfa:authorisation:changed", type="com.distriqt.extension.idfa.events.IDFAAuthorisationEvent")]
 	
 	
 	/**	
@@ -304,6 +313,75 @@ package com.distriqt.extension.idfa
 		
 		
 		
+		
+		//
+		//
+		//	AUTHORISATION
+		//
+		//
+		
+		/**
+		 * Returns the current authorisation status of the device.
+		 * This status indicates whether the user has authorised or denied
+		 * access to notifications.
+		 * <br/>
+		 *
+		 * The <code>NOT_DETERMINED</code> status is returned when your application
+		 * is first installed and you have not yet requested authorisation.
+		 *
+		 * @return A value from the <code>TrackingAuthorisationStatus</code> constants
+		 *
+		 * @see TrackingAuthorisationStatus
+		 */
+		public function authorisationStatus():String
+		{
+			try
+			{
+				return _extContext.call( "authorisationStatus" ) as String;
+			}
+			catch (e:Error)
+			{
+			}
+			return TrackingAuthorisationStatus.AUTHORISED;
+		}
+		
+		
+		private var _requestAuthorisationCallbacks:Array = [];
+		/**
+		 * This function triggers the authorisation request dialog. This dialog will only
+		 * be displayed once to a user on iOS so make sure you have adequately informed
+		 * your user why you are requesting authorisation.
+		 *
+		 * @return <code>true</code> if the request was started successfully and <code>false</code> otherwise
+		 *
+		 */
+		public function requestAuthorisation( callback:Function=null ):Boolean
+		{
+			try
+			{
+				if (_extContext.call( "requestAuthorisation" ) as Boolean)
+				{
+					if (callback != null)
+						_requestAuthorisationCallbacks.push( callback );
+					return true;
+				}
+			}
+			catch (e:Error)
+			{
+			}
+			
+			if (callback != null)
+			{
+				setTimeout( function():void
+							{
+								callback( authorisationStatus() );
+							}, 20 )
+			}
+			return false;
+		}
+		
+		
+		
 		////////////////////////////////////////////////////////
 		//	INTERNALS
 		//
@@ -339,6 +417,23 @@ package com.distriqt.extension.idfa
 						data = JSON.parse(event.level);
 						dispatchEvent( new IDFAEvent( event.code, null, false ));
 						break;
+					}
+					
+					
+					case IDFAAuthorisationEvent.CHANGED:
+					{
+						data = JSON.parse(event.level);
+						
+						for each (var callbackFunction:Function in _requestAuthorisationCallbacks)
+						{
+							callbackFunction( data.authorisationStatus );
+						}
+						_requestAuthorisationCallbacks = [];
+						
+						dispatchEvent( new IDFAAuthorisationEvent(
+								event.code,
+								data.authorisationStatus
+						));
 					}
 				}
 			}

@@ -16,6 +16,8 @@
 package com.distriqt.test.idfa 
 {
 	import com.distriqt.extension.idfa.IDFA;
+	import com.distriqt.extension.idfa.TrackingAuthorisationStatus;
+	import com.distriqt.extension.idfa.events.IDFAAuthorisationEvent;
 	import com.distriqt.extension.idfa.events.IDFAEvent;
 	
 	import flash.events.ErrorEvent;
@@ -111,6 +113,45 @@ package com.distriqt.test.idfa
 			    log( "advertisingTrackingEnabled = " + IDFA.service.advertisingTrackingEnabled );
 		    }
 	    }
+		
+		
+		//
+		//	AUTHORISATION
+		//
+		
+		
+		public function authorisationStatus():void
+		{
+			log( "authorisationStatus() = " + IDFA.service.authorisationStatus() );
+		}
+		
+		
+		public function requestAuthorisation():void
+		{
+			if (IDFA.isSupported)
+			{
+				IDFA.service.addEventListener( IDFAAuthorisationEvent.CHANGED, authorisationChangedHandler );
+//				if (IDFA.service.authorisationStatus() == TrackingAuthorisationStatus.NOT_DETERMINED)
+				{
+					var success:Boolean = IDFA.service.requestAuthorisation(
+							function( status:String ):void
+							{
+								log( "requestAuthorisation(): callback: " + status );
+							}
+					);
+					log( "requestAuthorisation() = " + success );
+				}
+			}
+		}
+		
+		
+		private function authorisationChangedHandler( event:IDFAAuthorisationEvent ):void
+		{
+			log( "authorisationChangedHandler: " + event.authorisationStatus );
+			IDFA.service.removeEventListener( IDFAAuthorisationEvent.CHANGED, authorisationChangedHandler );
+		}
+		
+		
 		
     }
 }

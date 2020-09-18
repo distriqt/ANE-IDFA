@@ -1,1 +1,1 @@
-[airnativeextensions](https://airnativeextensions.com) by [distriqt //](http://distriqt.com)
+[airnativeextensions](https://airnativeextensions.com) by [distriqt //](https://distriqt.com)
