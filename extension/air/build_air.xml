@@ -44,6 +44,8 @@
 
 	<cleanchars name="windows.name" value="${project.grp}${project.name}" />
 
+	<cleanchars name="macos.name" value="${project.grp}${project.name}" />
+
 	<taskdef resource="flexTasks.tasks" classpath="${air.sdk}/ant/lib/flexTasks.jar" />
 
 	<dirname property="air.basedir" file="${ant.file.extension_air}" />
@@ -76,6 +78,9 @@
 					<replacestring from="@WINDOWSLIB@" to="${windows.name}.dll"/>
 					<replacestring from="@WINDOWSEXTINIT@" to="${windows.name}ExtInitializer"/>
 					<replacestring from="@WINDOWSEXTFINAL@" to="${windows.name}ExtFinalizer"/>
+					<replacestring from="@MACOSLIB@" to="${macos.name}.framework"/>
+					<replacestring from="@MACOSEXTINIT@" to="${macos.name}ExtInitializer"/>
+					<replacestring from="@MACOSEXTFINAL@" to="${macos.name}ExtFinalizer"/>
 				</tokenfilter>
 			</filterchain>
 		</copy>
@@ -101,6 +106,9 @@
 		</antcall>
 
 		<antcall target="build_variants" />
+
+		<copy file="${common.basedir}/${default.dir}/bin/${default.name}" tofile="${common.basedir}/${output.dir}/swc/${output.name}.swc" />
+
 	</target>
 
 
@@ -130,6 +138,10 @@
 		<antcall target="prepare_windows" if:true="${windows.enabled}">
 			<param name="variant" value="${variant}" />
 		</antcall>
+		<antcall target="prepare_macos" if:true="${macos.enabled}">
+			<param name="variant" value="${variant}" />
+		</antcall>
+
 		<antcall target="package_ane" >
 			<param name="variant" value="${variant}" />
 		</antcall>
@@ -160,6 +172,7 @@
 		<copy file="${output.tmpdir}/library.swf" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" failonerror="true" if:true="${tvos.enabled}" />
 		<copy file="${output.tmpdir}/library.swf" todir="${android.dir}/${android.outputdir}" failonerror="true" if:true="${android.enabled}" />
 		<copy file="${output.tmpdir}/library.swf" todir="${windows.dir}/${windows.outputdir}" failonerror="true" if:true="${windows.enabled}" />
+		<copy file="${output.tmpdir}/library.swf" todir="${macos.dir}/${macos.build_dir}" failonerror="true" if:true="${macos.enabled}" />
 		<delete dir="${output.tmpdir}" />
 		
 		<unzip src="${common.basedir}/${default.dir}/bin/${default.name}" dest="${default.dir}/" overwrite="true"/>
@@ -184,8 +197,11 @@
 			<arg line="-platform Android-ARM -platformoptions ${android.dir}/platform_android${variant}.build.xml -C ${android.dir}/${android.outputdir} ." if:true="${android.enabled}" />
 			<arg line="-platform Android-ARM64 -platformoptions ${android.dir}/platform_android${variant}.build.xml -C ${android.dir}/${android.outputdir} ." if:true="${android.enabled}" />
 			<arg line="-platform Android-x86 -platformoptions ${android.dir}/platform_android${variant}.build.xml -C ${android.dir}/${android.outputdir} ." if:true="${android.enabled}" />
+			<arg line="-platform Android-x64 -platformoptions ${android.dir}/platform_android${variant}.build.xml -C ${android.dir}/${android.outputdir} ." if:true="${android.enabled}" />
 			
 			<arg line="-platform Windows-x86 -C ${windows.dir}/${windows.outputdir} ." if:true="${windows.enabled}" />
+
+			<arg line="-platform MacOS-x86-64 -C ${macos.dir}/${macos.build_dir} ." if:true="${macos.enabled}" /> 
 
 			<arg line="-platform default -C ${default.dir} ."/>
 		</exec>
@@ -228,17 +244,28 @@
 			<include name="*.bundle/**"/>
 		</patternset>
 
-		
+		<fileset id="iphoneosdircore" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" erroronmissingdir="false">
+			<include name="CoreNativeExtension.framework/**" if:true="${ios.packagecoreframework}"/> 
+			<exclude name="**/*" unless:true="${ios.packagecoreframework}"/>
+		</fileset>
+		<fileset id="iphonesimulatordircore" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" erroronmissingdir="false">
+			<include name="CoreNativeExtension.framework/**" if:true="${ios.packagecoreframework}"/> 
+			<exclude name="**/*" unless:true="${ios.packagecoreframework}"/>
+		</fileset>
+		<fileset id="tvosdircore" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" erroronmissingdir="false">
+			<include name="CoreNativeExtension.framework/**" if:true="${ios.packagecoreframework}"/> 
+			<exclude name="**/*" unless:true="${ios.packagecoreframework}"/>
+		</fileset>
 		<fileset id="iphoneosdir" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" erroronmissingdir="false">
-			<exclude name="CoreNativeExtension.framework/**" unless:true="${ios.packagecoreframework}"/>
+			<exclude name="*.framework/**" />
 			<include name="**/*"/>
 		</fileset>
 		<fileset id="iphonesimulatordir" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" erroronmissingdir="false">
-			<exclude name="CoreNativeExtension.framework/**" unless:true="${ios.packagecoreframework}"/>
+			<exclude name="*.framework/**" />
 			<include name="**/*"/>
 		</fileset>
 		<fileset id="tvosdir" dir="${common.basedir}/${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" erroronmissingdir="false">
-			<exclude name="CoreNativeExtension.framework/**" unless:true="${ios.packagecoreframework}"/>
+			<exclude name="*.framework/**" />
 			<include name="**/*"/>
 		</fileset>
 		<fileset id="codedir" dir="${common.basedir}/${ios.dir}/${ios.name}" erroronmissingdir="false" >
@@ -251,14 +278,18 @@
 			<patternset refid="libs.frameworks.bundles"/>
 		</fileset>
 
-		<fileset id="libsxcframeowks" dir="${common.basedir}/${ios.dir}/libs/${variant}" erroronmissingdir="false">
+		<dirset id="libsxcframeworks" dir="${common.basedir}/${ios.dir}/libs/${variant}" erroronmissingdir="false">
 			<include name="*.xcframework" />
-		</fileset>
+		</dirset>
+		<dirset id="libsdynamicxcframeworks" dir="${common.basedir}/${ios.dir}/libs-dynamic/${variant}" erroronmissingdir="false">
+			<include name="*.xcframework" />
+		</dirset>
 
 		<!-- Copy frameworks (universal/dynamic) to extension platform build dir -->
 		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphoneos_dir}" >
 			<resources>
 				<union>
+					<resources refid="iphoneosdircore" />
 					<resources refid="iphoneosdir" />
 					<resources refid="codedir" />
 					<resources refid="libsvariantdir" />
@@ -269,6 +300,7 @@
 		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" >
 			<resources>
 				<union>
+					<resources refid="iphonesimulatordircore" />
 					<resources refid="iphonesimulatordir" />
 					<resources refid="codedir" />
 					<resources refid="libsvariantdir" />
@@ -279,6 +311,7 @@
 		<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.tvos_dir}" if:true="${tvos.enabled}">
 			<resources>
 				<union>
+					<resources refid="tvosdircore" />
 					<resources refid="tvosdir" />
 					<resources refid="codedir" />
 					<resources refid="libsvariantdir" />
@@ -290,9 +323,8 @@
 		<!-- Handle xcframeworks - copy appropriate version to extension platform build dir -->
 		<for param="frameworkname">
 			<path>
-				<dirset dir="${common.basedir}/${ios.dir}/libs/${variant}" erroronmissingdir="false">
-					<include name="*.xcframework" />
-				</dirset>
+				<resources refid="libsxcframeworks" />
+				<resources refid="libsdynamicxcframeworks" />
 			</path>
 			<sequential>
 				<echo message="@{frameworkname}" />
@@ -680,7 +712,40 @@
 
 
 
+	<!-- 
+	//
+	//
+	//	MACOS 
+	//
+	//
+	-->
 
+	<target name="prepare_macos" description="Copy MacOS files for packaging" >
+
+		<copy overwrite="true" todir="${macos.dir}/${macos.build_dir}" >
+			<fileset dir="${common.basedir}/${macos.dir}/${macos.build_dir}" erroronmissingdir="false">
+				<include name="**/*"/>
+				<exclude name="**/*.dSYM/**" />
+				<exclude name="CoreNativeExtension.framework" />
+			</fileset>
+		</copy>
+		
+		<if>
+			<equals arg1="${macos.packagecorelib}" arg2="true" />
+			<then>
+			<copy overwrite="true" todir="${macos.dir}/${macos.build_dir}" >
+				<fileset dir="${common.basedir}/${macos.dir}/${macos.build_dir}" erroronmissingdir="false">
+					<include name="CoreNativeExtension.framework/**" />
+				</fileset>
+			</copy>
+			</then>
+		</if>
+
+	</target>
+
+
+
+	
 
 	<!-- 
 	//

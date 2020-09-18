@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70b6636e-0aee-49db-94d0-8ff091829999" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build_config/version.config" beforeDir="false" afterPath="$PROJECT_DIR$/build_config/version.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/simple/src/TestIDFA-app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/simple/src/TestIDFA-app.xml" afterDir="false" />
-    </list>
+    <list default="true" id="70b6636e-0aee-49db-94d0-8ff091829999" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -384,6 +380,7 @@
       <item itemvalue="Flash App.simple.Android" />
     </list>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -424,11 +421,12 @@
       <workItem from="1594694562820" duration="1279000" />
       <workItem from="1594701474436" duration="13000" />
       <workItem from="1594701583624" duration="137000" />
+      <workItem from="1600404231170" duration="451000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1409" y="313" key="#Project_Structure" timestamp="1594694996113">
