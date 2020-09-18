@@ -87,7 +87,7 @@ package com.distriqt.test.idfa
 			_text = new TextField( stage.stageWidth, stage.stageHeight, "", "_typewriter", 18, Color.WHITE );
 			_text.hAlign = HAlign.LEFT;
 			_text.vAlign = VAlign.TOP;
-			_text.y = 40;
+			_text.y = 100;
 			_text.touchable = false;
 			
 			var layout:VerticalLayout = new VerticalLayout();
@@ -96,15 +96,18 @@ package com.distriqt.test.idfa
 			layout.gap = 5;
 			var container:ScrollContainer = new ScrollContainer();
 			container.layout = layout;
-			container.y = 50;
+			container.y = 100;
 			container.width = stage.stageWidth;
-			container.height = stage.stageHeight-50;
+			container.height = stage.stageHeight-container.y - 100;
 			
 			_buttons = new Vector.<Button>();
 			
 			addAction( "Get IDFA", _tests.getIDFA );
 			
 			addAction( "Tracking Enabled", _tests.trackingEnabledTest );
+			
+			addAction( "Get :Authorisation", _tests.authorisationStatus );
+			addAction( "Request :Authorisation", _tests.requestAuthorisation );
 			
 			
 			addChild( _text );

@@ -16,7 +16,11 @@
 package com.distriqt.test.idfa 
 {
 	import com.distriqt.extension.idfa.IDFA;
+	import com.distriqt.extension.idfa.TrackingAuthorisationStatus;
+	import com.distriqt.extension.idfa.events.IDFAAuthorisationEvent;
 	import com.distriqt.extension.idfa.events.IDFAEvent;
+	
+	import flash.events.ErrorEvent;
 	
 	import starling.display.Sprite;
 	
@@ -55,7 +59,8 @@ package com.distriqt.test.idfa
 		        if (IDFA.isSupported)
 		        {
 			        log( "IDFA version:     " + IDFA.service.version );
-		        }
+					IDFA.service.addEventListener( ErrorEvent.ERROR, errorHandler );
+				}
 	        }
 	        catch (e:Error)
 	        {
@@ -63,12 +68,24 @@ package com.distriqt.test.idfa
         }
 
 		
+		private function errorHandler( event:ErrorEvent ):void
+		{
+			log( "ERROR: " + event.text );
+		}
+		
+		
+		//
+		//
+		//
+		
+		
 		public function getIDFA():void
 		{
 			log( "getIDFA()" );
 			if (IDFA.isSupported)
 			{
 				IDFA.service.addEventListener( IDFAEvent.COMPLETE, idfaCompleteHandler );
+				IDFA.service.addEventListener( IDFAEvent.ERROR, idfaErrorHandler );
 				IDFA.service.getIDFA();
 			}
 		}
@@ -79,7 +96,10 @@ package com.distriqt.test.idfa
 			log( "isLimitAdTrackingEnabled: " + event.isLimitAdTrackingEnabled );
 		}
 	    
-	    
+	    private function idfaErrorHandler( event:IDFAEvent ):void
+		{
+			log( "idfaErrorHandler" )
+		}
 	    
 	    //
 	    //  TRACKING ENABLED
@@ -93,6 +113,45 @@ package com.distriqt.test.idfa
 			    log( "advertisingTrackingEnabled = " + IDFA.service.advertisingTrackingEnabled );
 		    }
 	    }
+		
+		
+		//
+		//	AUTHORISATION
+		//
+		
+		
+		public function authorisationStatus():void
+		{
+			log( "authorisationStatus() = " + IDFA.service.authorisationStatus() );
+		}
+		
+		
+		public function requestAuthorisation():void
+		{
+			if (IDFA.isSupported)
+			{
+				IDFA.service.addEventListener( IDFAAuthorisationEvent.CHANGED, authorisationChangedHandler );
+//				if (IDFA.service.authorisationStatus() == TrackingAuthorisationStatus.NOT_DETERMINED)
+				{
+					var success:Boolean = IDFA.service.requestAuthorisation(
+							function( status:String ):void
+							{
+								log( "requestAuthorisation(): callback: " + status );
+							}
+					);
+					log( "requestAuthorisation() = " + success );
+				}
+			}
+		}
+		
+		
+		private function authorisationChangedHandler( event:IDFAAuthorisationEvent ):void
+		{
+			log( "authorisationChangedHandler: " + event.authorisationStatus );
+			IDFA.service.removeEventListener( IDFAAuthorisationEvent.CHANGED, authorisationChangedHandler );
+		}
+		
+		
 		
     }
 }

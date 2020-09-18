@@ -1,5 +1,12 @@
 
 
+###### 2020.09.18 [v5.0.027]
+
+```
+Authorisation request using App Tracking Transparency in iOS 14
+```
+
+
 ###### 2020.03.21 [v3.0.007]
 
 ```
