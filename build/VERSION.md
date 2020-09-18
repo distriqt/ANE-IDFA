@@ -1,1 +1,1 @@
-| com.distriqt.IDFA | 5.0.025 |  |  |
+| com.distriqt.IDFA | 5.0.026 |  |  |
