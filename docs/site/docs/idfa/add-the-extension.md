@@ -1,7 +1,11 @@
+---
+title: Add the Extension
+sidebar_label: Add the Extension
+---
 
 
 First step is always to add the extension to your development environment. 
-To do this use the tutorial located [here](https://airnativeextensions.github.io/tutorials/getting-started).
+To do this use the tutorial located [here](/docs/tutorials/getting-started).
 
 
 
@@ -160,7 +164,7 @@ You can use the `isSupported` flag to determine if this extension is supported o
 This allows you to react to whether the functionality is available on the device and provide an alternative solution if not.
 
 
-```as3
+```actionscript
 if (IDFA.isSupported)
 {
 	// Functionality here

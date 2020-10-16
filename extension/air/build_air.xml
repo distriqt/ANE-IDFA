@@ -755,7 +755,20 @@
 	//
 	-->
 
-	<target name="docs" description="">
+	<target name="docs" description="" >
+
+		<condition property="asdocsavailable">
+			<available file="${common.basedir}/${output.docs}/.embedded/tempdita" type="dir"/>
+		</condition>
+
+		<zip destfile="${common.basedir}/${output.dir}/${output.name}.ane" update="true" if:true="${asdocsavailable}">
+			<zipfileset dir="${common.basedir}/${output.docs}/.embedded/tempdita" prefix="docs">
+				<include name="*.*"/>
+				<exclude name="ASDoc_Config.xml" />
+				<exclude name="overviews.xml" />
+			</zipfileset>
+		</zip>
+
 	</target>
 
 
