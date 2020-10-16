@@ -1,5 +1,12 @@
 
 
+###### 2020.10.16 [v5.0.028]
+
+```
+Removed hard dependency on iOS 14 AppTrackingTransparency framework
+```
+
+
 ###### 2020.09.18 [v5.0.027]
 
 ```

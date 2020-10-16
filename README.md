@@ -39,7 +39,7 @@ IDFA.service.requestAuthorisation(
 
 function idfaCompleteHandler( event:IDFAEvent ):void
 {
-	trace( "identifier: " + event.identifier );
+    trace( "identifier: " + event.identifier );
     trace( "isLimitAdTrackingEnabled: " + event.isLimitAdTrackingEnabled );
 }
 ```
