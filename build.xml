@@ -96,18 +96,32 @@
 
 	<target name="docs">
         <iterate target="docs" directory="platform" />
+
+		<!-- Ensure documentation is updated -->
+		<lower name="project.namelower" value="${project.name}" />
+		<var name="docs.dir" value="docs/site/docs/${project.namelower}" />
+		<var name="docs.asdocs_dir" value="docs/site/static/asdocs/${project.namelower}" />
+
+		<!-- Copy ASDocs -->
+		<copy todir="${docs.asdocs_dir}" overwrite="true" >
+			<fileset dir="docs/asdocs" />
+		</copy>
+
+		<!-- Copy CHANGELOG -->
+		<copy tofile="${docs.dir}/changelog.md" overwrite="true" file="CHANGELOG.md" />
+
 	</target>
 
 
 	<target name="wikiToPages">
-		<mkdir dir="docs/site" />
-		<echo file="docs/site/.gitignore" >
+		<mkdir dir="docs/pages" />
+		<echo file="docs/pages/.gitignore" >
 Gemfile
 _site
 		</echo>
 		
 		<delete defaultexcludes="false" includeemptydirs="true">
-			<fileset dir="docs/site">
+			<fileset dir="docs/pages">
 				<include name="**/*" />
 				<exclude name=".gitignore" />
 			</fileset>
@@ -121,7 +135,7 @@ _site
 			<arg value="git@gitlab.com:airnativeextensions/github-pages-template.git" />
 			<arg value="_tmpclone" />
 		</exec>
-		<copy todir="docs/site" overwrite="true" >
+		<copy todir="docs/pages" overwrite="true" >
 			<fileset dir="_tmpclone" />
 			<filterchain>
 				<tokenfilter>
@@ -137,7 +151,7 @@ _site
 		 - copy images 
 		 - sidebar manipulation to html
 		 -->
-		<copy todir="docs/site" overwrite="true" >
+		<copy todir="docs/pages" overwrite="true" >
 			<fileset dir="docs/wiki" defaultexcludes="false">
 				<exclude name="**/_Sidebar.md" />
 				<exclude name="**/_Footer.md" />
@@ -150,13 +164,13 @@ _site
 				</tokenfilter>
 			</filterchain>
 		</copy>
-		<move file="docs/site/Home.md" tofile="docs/site/index.md" />
-		<copy todir="docs/site" overwrite="true" >
+		<move file="docs/pages/Home.md" tofile="docs/pages/index.md" />
+		<copy todir="docs/pages" overwrite="true" >
 			<fileset dir="docs/wiki" defaultexcludes="false">
 				<include name="**/images/**" />
 			</fileset>
 		</copy>
-		<copy file="docs/wiki/_Sidebar.md" tofile="docs/site/_includes/Sidebar.html" overwrite="true">
+		<copy file="docs/wiki/_Sidebar.md" tofile="docs/pages/_includes/Sidebar.html" overwrite="true">
 			<filterchain>
 				<tokenfilter>
 					<replacestring from="---" to="&lt;br/&gt;&lt;hr/&gt;"/>
@@ -178,7 +192,7 @@ _site
 		</copy>
 
 		<!-- Copy ASDocs -->
-		<copy todir="docs/site/asdocs" overwrite="true" >
+		<copy todir="docs/pages/asdocs" overwrite="true" >
 			<fileset dir="docs/asdocs" />
 		</copy>
 
@@ -192,7 +206,7 @@ _site
 		<![CDATA[
 			var source = attributes.get( "value" );
 			if (source.charAt(1) == ".") source = source.substr(2);
-			if (source == "Home.md") source = "index.md";
+			if (source.toLowerCase() == "home.md") source = "index.md";
 			source = source.toLowerCase().replaceAll( " ", "-" ) 
 			project.setProperty( attributes.get( "name" ), source );
 		]]>
@@ -234,6 +248,7 @@ _site
 				<var name="doc.title" unset="true" />
 				<var name="doc.filename" unset="true" />
 				<wikitodoctitle name="doc.title" value="@{filename}" />
+				<lower name="doc.titlelower" value="${doc.title}" />
 				<wikitodocfilename name="doc.filename" value="${doc.title}.md" />
 				<copy tofile="${docs.dir}/${doc.filename}" overwrite="true" file="@{filename}">
 					<filterchain>
@@ -241,12 +256,12 @@ _site
 						<!-- LINKS [[title|u.link]] -->
 						<scriptfilter language="javascript">
 							var line = self.getToken();
-							var regex = /\[\[(.+?)\|(.+?)\]\]/g;
+							var regex = /\[\[([^\]]+?)\|(.+?)\]\]/g;
 							var result = line.replace( regex, function( $0, $1, $2 )
 							{
 								var link = $2;
 								if (link.charAt(1) == ".") link = link.substr(2);
-								if (link == "Home") link = "./";
+								if (link.toLowerCase() == "home") link = "./";
 								link = link.toLowerCase().replaceAll( " ", "-" ); 
 								return "[" + $1 + "](" + link + ")";
 							});
@@ -263,8 +278,8 @@ _site
 							<replacestring from="```c#" to="```csharp"/>
 							<replacestring from="http://airnativeextensions.com/knowledgebase/tutorial/1" to="/docs/tutorials/getting-started"/>
 							<replacestring from="https://airnativeextensions.com/knowledgebase/tutorial/1" to="/docs/tutorials/getting-started"/>
-							<replacestring from="http://airnativeextensions.github.io/tutorials/getting-started" to="/docs/tutorials/getting-started"/>
-							<replacestring from="https://airnativeextensions.github.io/tutorials/getting-started" to="/docs/tutorials/getting-started"/>
+							<replacestring from="http://airnativeextensions.github.io/tutorials/" to="/docs/tutorials/"/>
+							<replacestring from="https://airnativeextensions.github.io/tutorials/" to="/docs/tutorials/"/>
 						</tokenfilter>
 
 					</filterchain>
@@ -273,7 +288,7 @@ _site
 					<scriptmapper language="javascript">
 						var dest = source;
 						if (dest.charAt(1) == ".") dest = dest.substr(2);
-						if (dest == "Home.md") dest = "index.md";
+						if (dest.toLowerCase() == "home.md") dest = "index.md";
 						dest = dest.toLowerCase().replaceAll( " ", "-" ); 
 						self.addMappedName( dest );
 					</scriptmapper>
@@ -283,12 +298,12 @@ _site
 				<loadfile property="doc.content" srcfile="${docs.dir}/${doc.filename}"/> 
 				
 				<if>
-					<equals arg1="${doc.title}" arg2="Home" />
+					<equals arg1="${doc.titlelower}" arg2="home" />
 					<then>
 <echo file="${docs.dir}/${doc.filename}" >---
 title: ${project.name}
 hide_title: true
-slug: /${project.namelower}
+slug: /${project.namelower}/
 ---
 </echo>
 					</then>
@@ -312,25 +327,32 @@ sidebar_label: ${doc.title}
 			</fileset>
 		</copy>
 
-		<!-- Copy ASDocs -->
-		<copy todir="${docs.asdocs_dir}" overwrite="true" >
-			<fileset dir="docs/asdocs" />
-		</copy>
+		<antcall target="docs" />
+		<antcall target="deploy" />
 
-		<!-- Copy CHANGELOG -->
-		<copy tofile="${docs.dir}/changelog.md" overwrite="true" file="CHANGELOG.md" />
 
-		<!-- Copy to site -->
+	</target>
+
+
+
+	<!-- 
+	//
+	//
+	//	DEPLOYMENT 
+	//
+	//
+	-->
+
+	<target name="deploy">
+
+		<!-- Copy docs to site -->
 		<copy todir="${docs.external_site_source}" overwrite="true" >
 			<fileset dir="docs/site" >
 				<include name="**/*" />
 			</fileset>
 		</copy>
 
-
-
 	</target>
-
 
 
 
@@ -346,7 +368,7 @@ sidebar_label: ${doc.title}
 
 	<target name="clean" depends="clean_platforms, clean_extensions" />
 
-	<target name="release" depends="docs, wikiToSite" />
+	<target name="release" depends="docs, deploy" />
 
 
 </project>
