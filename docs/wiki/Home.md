@@ -1,3 +1,8 @@
+>
+> This extension is provided for **free**. If it helps you please consider sponsoring the developers to continue support and development of the extension:
+>
+> [:heart: Sponsor](https://github.com/sponsors/marchbold)
+>
 
 [[images/hero.png]]
 
@@ -18,8 +23,7 @@ gives you simple access to the advertising identifiers on Android and iOS.
 
 ## Documentation
 
-The [wiki](https://github.com/distriqt/ANE-IDFA/wiki) forms the best source of detailed documentation for the extension along with 
-the [asdocs](https://distriqt.github.io/ANE-IDFA/asdocs). 
+The [documentation site](https://docs.airnativeextensions.com/docs/idfa/) forms the best source of detailed documentation for the extension along with the [asdocs](https://docs.airnativeextensions.com/asdocs/idfa/). 
 
 
 Example: 
