@@ -94,13 +94,17 @@
 
     <target name="package_extension" description="Package Plugin" depends="version_write" >
 		
+		<!-- TODO check into this -->
+		<exec executable="lipo" failonerror="false">
+			<arg line="-remove arm64 -output '${common.basedir}/${ios.dir}/${unity.iphonesimulator_dir}/${unity.ioslibname}' '${common.basedir}/${ios.dir}/${unity.iphonesimulator_dir}/${unity.ioslibname}'" />
+		</exec>
 
 		<!-- Combine iphoneos and simualtor static libs -->
 		<exec executable="lipo" dir="${unity.basedir}">
 			<arg line="-create" />
 			<arg line="-output '${unity.plugindir}/iOS/${unity.ioslibname}'" />
 			<arg line="'${common.basedir}/${ios.dir}/${unity.iphoneos_dir}/${unity.ioslibname}'" if:true="${ios.enabled}" /> 
-			<arg line="'${common.basedir}/${ios.dir}/${unity.iphonesimulator_dir}/${unity.ioslibname}'" if:true="${ios.enabled}" />
+			<arg line="'${common.basedir}/${ios.dir}/${unity.iphonesimulator_dir}/${unity.ioslibname}'" if:true="${iosimulator.enabled}" />
 			<!-- <arg value="${common.basedir}/${ios.dir}/${unity.tvos_dir}/${unity.ioslibname}" if:true="${tvos.enabled}" /> -->
 		</exec>
 		
@@ -140,7 +144,7 @@
 		<exec executable="${unity.cmd}" failonerror="true">
 			<arg line="-batchMode" />
 			<arg line="-projectPath ${unity.basedir}" />
-			<arg line="-exportPackage Assets" />
+			<arg line="-exportPackage Assets/distriqt" />
 			<arg line="${common.basedir}/${output.dir}/${unity.packagename}" />
 			<arg line="-quit" />
 		</exec> 

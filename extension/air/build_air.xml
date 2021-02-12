@@ -332,9 +332,15 @@
 					<fileset dir="@{frameworkname}/ios-armv7_arm64" erroronmissingdir="false">
 						<patternset refid="libs.frameworks.bundles"/>
 					</fileset>
+					<fileset dir="@{frameworkname}/ios-arm64_armv7" erroronmissingdir="false">
+						<patternset refid="libs.frameworks.bundles"/>
+					</fileset>
 				</copy>
 				<copy overwrite="true" todir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" >
 					<fileset dir="@{frameworkname}/ios-i386_x86_64-simulator" erroronmissingdir="false">
+						<patternset refid="libs.frameworks.bundles"/>
+					</fileset>
+					<fileset dir="@{frameworkname}/ios-arm64_i386_x86_64-simulator" erroronmissingdir="false">
 						<patternset refid="libs.frameworks.bundles"/>
 					</fileset>
 				</copy>
@@ -382,7 +388,13 @@
 				</exec>
 			</sequential>
 		</for>
-		<for param="frameworkpath" if:true="${isMacOS}">
+		<condition property="iOSSimulatorandmacOS" >
+			<and>
+				<istrue value="${iosimulator.enabled}" />
+				<istrue value="${macOS}" />
+			</and>
+		</condition>
+		<for param="frameworkpath" if:true="${iOSSimulatorandmacOS}">
 			<path>
 				<dirset dir="${ios.dir}/${ios.build_dir}/${variant}/${ios.iphonesimulator_dir}" >
 					<include name="*.framework" />
@@ -725,8 +737,10 @@
 		<copy overwrite="true" todir="${macos.dir}/${macos.build_dir}" >
 			<fileset dir="${common.basedir}/${macos.dir}/${macos.build_dir}" erroronmissingdir="false">
 				<include name="**/*"/>
+				<exclude name="*.framework/Versions/**"/>
 				<exclude name="**/*.dSYM/**" />
-				<exclude name="CoreNativeExtension.framework" />
+				<exclude name="CoreNativeExtension.framework/**" />
+				<exclude name="*Unity.bundle/**" />
 			</fileset>
 		</copy>
 		
@@ -736,6 +750,7 @@
 			<copy overwrite="true" todir="${macos.dir}/${macos.build_dir}" >
 				<fileset dir="${common.basedir}/${macos.dir}/${macos.build_dir}" erroronmissingdir="false">
 					<include name="CoreNativeExtension.framework/**" />
+					<exclude name="*.framework/Versions/**"/>
 				</fileset>
 			</copy>
 			</then>
