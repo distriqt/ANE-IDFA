@@ -66,7 +66,7 @@ Using the callback:
 IDFA.service.requestAuthorisation(
         function( authorisationStatus:String ):void
         {
-            trace( status );
+            trace( authorisationStatus );
         }
 );
 ```

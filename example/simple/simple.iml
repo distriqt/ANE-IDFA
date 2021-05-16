@@ -36,7 +36,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/icons" path-in-package="icons" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Assets.car" path-in-package="Assets.car" />
           </files-to-package>
-          <AirSigningOptions sdk="$MODULE_DIR$/../../../../../../../sdks/ios/iPhoneOS14.0.sdk" keystore-path="$USER_HOME$/Google Drive/work/certs/distriqt/development/Certificates.p12" provisioning-profile-path="$USER_HOME$/Google Drive/work/certs/com.distriqt.test/development/distriqt_test_profile.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Google Drive/work/certs/distriqt/development/Certificates.p12" provisioning-profile-path="$USER_HOME$/Google Drive/work/certs/com.distriqt.test/development/distriqt_test_profile.mobileprovision" />
         </packaging-ios>
       </configuration>
     </configurations>

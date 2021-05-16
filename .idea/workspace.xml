@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70b6636e-0aee-49db-94d0-8ff091829999" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/VERSION.md" beforeDir="false" afterPath="$PROJECT_DIR$/build/VERSION.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/com.distriqt.IDFA.ane" beforeDir="false" afterPath="$PROJECT_DIR$/build/com.distriqt.IDFA.ane" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/swc/com.distriqt.IDFA.swc" beforeDir="false" afterPath="$PROJECT_DIR$/build/swc/com.distriqt.IDFA.swc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build_config/version.config" beforeDir="false" afterPath="$PROJECT_DIR$/build_config/version.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/site/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/wiki/h.Migrating to v4.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/simple/src/Default-375w-667h@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/simple/src/Default-414w-736h@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/simple/src/Default-568h@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/simple/src/Default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/starling/src/Default-375w-667h@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/starling/src/Default-414w-736h@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/starling/src/Default-568h@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/starling/src/Default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/Const.as" beforeDir="false" afterPath="$PROJECT_DIR$/platform/actionscript/src/com/distriqt/extension/idfa/Const.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/Const.as" beforeDir="false" afterPath="$PROJECT_DIR$/platform/default/src/com/distriqt/extension/idfa/Const.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/ios/build/Release-iphoneos/libIDFA.a" beforeDir="false" afterPath="$PROJECT_DIR$/platform/ios/build/Release-iphoneos/libIDFA.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/ios/build/Release-iphonesimulator/libIDFA.a" beforeDir="false" afterPath="$PROJECT_DIR$/platform/ios/build/Release-iphonesimulator/libIDFA.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/site/docs/idfa/get-advertising-identifier.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/site/docs/idfa/get-advertising-identifier.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/simple/simple.iml" beforeDir="false" afterPath="$PROJECT_DIR$/example/simple/simple.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -449,6 +433,8 @@
       <workItem from="1600412052725" duration="3949000" />
       <workItem from="1600432020897" duration="297000" />
       <workItem from="1600432496111" duration="290000" />
+      <workItem from="1615960016400" duration="2513000" />
+      <workItem from="1616990967932" duration="134000" />
     </task>
     <servers />
   </component>
@@ -456,54 +442,42 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1409" y="313" key="#Project_Structure" timestamp="1600432178451">
+    <state x="1408" y="313" key="#Project_Structure" timestamp="1615960750504">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="1409" y="313" key="#Project_Structure/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600432178451" />
-    <state x="453" y="454" key="#com.intellij.ide.util.MemberChooser" timestamp="1600410210781">
+    <state x="1408" y="313" key="#Project_Structure/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1615960750504" />
+    <state width="1238" height="561" key="GridCell.Tab.0.bottom" timestamp="1615962942508">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="453" y="454" key="#com.intellij.ide.util.MemberChooser/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600410210781" />
-    <state x="1659" y="493" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1600432174711">
+    <state width="1238" height="561" key="GridCell.Tab.0.bottom/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1615962942508" />
+    <state width="1238" height="561" key="GridCell.Tab.0.center" timestamp="1615962942508">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="1659" y="493" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600432174711" />
-    <state width="1238" height="561" key="GridCell.Tab.0.bottom" timestamp="1600432318435">
+    <state width="1238" height="561" key="GridCell.Tab.0.center/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1615962942508" />
+    <state width="1238" height="561" key="GridCell.Tab.0.left" timestamp="1615962942507">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1238" height="561" key="GridCell.Tab.0.bottom/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600432318435" />
-    <state width="1238" height="561" key="GridCell.Tab.0.center" timestamp="1600432318435">
+    <state width="1238" height="561" key="GridCell.Tab.0.left/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1615962942507" />
+    <state width="1238" height="561" key="GridCell.Tab.0.right" timestamp="1615962942508">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1238" height="561" key="GridCell.Tab.0.center/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600432318435" />
-    <state width="1238" height="561" key="GridCell.Tab.0.left" timestamp="1600432318435">
+    <state width="1238" height="561" key="GridCell.Tab.0.right/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1615962942508" />
+    <state width="1238" height="561" key="GridCell.Tab.1.bottom" timestamp="1615962942508">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1238" height="561" key="GridCell.Tab.0.left/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600432318435" />
-    <state width="1238" height="561" key="GridCell.Tab.0.right" timestamp="1600432318435">
+    <state width="1238" height="561" key="GridCell.Tab.1.bottom/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1615962942508" />
+    <state width="1238" height="561" key="GridCell.Tab.1.center" timestamp="1615962942508">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1238" height="561" key="GridCell.Tab.0.right/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600432318435" />
-    <state width="1238" height="561" key="GridCell.Tab.1.bottom" timestamp="1600432318436">
+    <state width="1238" height="561" key="GridCell.Tab.1.center/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1615962942508" />
+    <state width="1238" height="561" key="GridCell.Tab.1.left" timestamp="1615962942508">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1238" height="561" key="GridCell.Tab.1.bottom/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600432318436" />
-    <state width="1238" height="561" key="GridCell.Tab.1.center" timestamp="1600432318436">
+    <state width="1238" height="561" key="GridCell.Tab.1.left/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1615962942508" />
+    <state width="1238" height="561" key="GridCell.Tab.1.right" timestamp="1615962942508">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1238" height="561" key="GridCell.Tab.1.center/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600432318436" />
-    <state width="1238" height="561" key="GridCell.Tab.1.left" timestamp="1600432318435">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1238" height="561" key="GridCell.Tab.1.left/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600432318435" />
-    <state width="1238" height="561" key="GridCell.Tab.1.right" timestamp="1600432318436">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1238" height="561" key="GridCell.Tab.1.right/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600432318436" />
-    <state x="305" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1600409478044">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="305" y="348" width="670" height="676" key="search.everywhere.popup/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1600409478044" />
+    <state width="1238" height="561" key="GridCell.Tab.1.right/2560.-371.1080.1897/0.23.2560.1417@0.23.2560.1417" timestamp="1615962942508" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
