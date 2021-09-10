@@ -1,3 +1,10 @@
+###### 2021.09.10 [v5.0.31]
+
+```
+Added airpackage
+Added AdvertisingIdInfo to bring inline with Adverts API deprecation
+```
+
 
 
 ###### 2021.05.17 [v5.0.029]
