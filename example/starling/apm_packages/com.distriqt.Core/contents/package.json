@@ -1,0 +1,20 @@
+{
+    "id": "com.distriqt.Core",
+    "name": "Core Native Extension",
+    "url": "https://github.com/distriqt/ANE-Core",
+    "docUrl": "https://github.com/distriqt/ANE-Core/wiki",
+    "description": "Extension providing a centralised library for native extension common utilities and a notification / delegation system",
+    "type": "ane",
+    "version": "6.4.3",
+    "sourceUrl": "https://github.com/distriqt/ANE-Core/releases/download/v6.4.3/com.distriqt.Core_6.4.3.airpackage",
+    "publishedAt": "2021-08-20T00:00:00.000Z",
+    "dependencies": [],
+    "parameters": [],
+    "tags": [],
+    "license": {
+        "url": "",
+        "type": "none",
+        "public": true
+    },
+    "purchaseUrl": ""
+}

@@ -1,0 +1,22 @@
+{
+    "identifier": "com.distriqt.test",
+    "name": "TestIDFA",
+    "filename": "TestIDFA",
+    "version": "0.0.1",
+    "versionLabel": "",
+    "dependencies": [
+        {
+            "version": "5.0.31",
+            "id": "com.distriqt.IDFA"
+        }
+    ],
+    "configuration": {
+        "userTrackingUsageDescription": {
+            "name": "userTrackingUsageDescription",
+            "required": "true",
+            "value": "Allows us to deliver personalized ads for you."
+        }
+    },
+    "repositories": [],
+    "deployOptions": {}
+}

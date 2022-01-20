@@ -1,0 +1,20 @@
+{
+  "id": "com.distriqt.playservices.Base",
+  "name": "Google Play Services Base  ",
+  "url": "https://github.com/distriqt/ANE-GooglePlayServices",
+  "docUrl": "https://github.com/distriqt/ANE-GooglePlayServices/wiki",
+  "description": "Google Play Services Base dependencies",
+  "type": "ane",
+  "version": "17.5.1",
+  "sourceUrl": "https://github.com/distriqt/ANE-GooglePlayServices/releases/download/v26.7.1/com.distriqt.playservices.Base_17.5.1.airpackage",
+  "publishedAt": "2021-09-09T00:00:00.000Z",
+  "dependencies": [],
+  "parameters": [],
+  "tags": [],
+  "license": {
+    "url": "",
+    "type": "none",
+    "public": true
+  },
+  "purchaseUrl": ""
+}

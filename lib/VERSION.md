@@ -2,4 +2,4 @@
 
 | Extension | Version | Android Lib | iOS Lib |
 | --- | --- | --- | --- |
-| com.distriqt.IDFA | 5.0.31 |  |  |
+| com.distriqt.IDFA | 5.0.32 |  |  |
