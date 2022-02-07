@@ -1,3 +1,10 @@
+###### 2022.02.07 [v5.0.33]
+
+```
+Update installation docs
+Update air package dependencies
+```
+
 ###### 2022.01.20 [v5.0.32]
 
 ```
