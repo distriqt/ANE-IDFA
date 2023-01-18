@@ -38,7 +38,10 @@
 			</array>
 
 			<key>NSUserTrackingUsageDescription</key>
-			<string>This identifier will be used to deliver personalized ads to you.</string>
+			<string>This will allow us to deliver personalized ads for you.</string>
+
+			<key>MinimumOSVersion</key>
+            <string>11.0</string>
 
 		]]></InfoAdditions>
 		<requestedDisplayResolution>high</requestedDisplayResolution>

@@ -5,9 +5,9 @@
   "docUrl": "https://github.com/distriqt/ANE-GooglePlayServices/wiki",
   "description": "Google Play Services Ads Identifier dependencies",
   "type": "ane",
-  "version": "17.0.0",
-  "sourceUrl": "https://github.com/distriqt/ANE-GooglePlayServices/releases/download/v26.7.1/com.distriqt.playservices.AdsIdentifier_17.0.0.airpackage",
-  "publishedAt": "2021-09-09T00:00:00.000Z",
+  "version": "18.0.101",
+  "sourceUrl": "https://github.com/distriqt/ANE-GooglePlayServices/releases/download/v27.3.0/com.distriqt.playservices.AdsIdentifier_18.0.101.airpackage",
+  "publishedAt": "2022-11-18T13:58:19.000Z",
   "dependencies": [],
   "parameters": [],
   "tags": [],
@@ -16,5 +16,6 @@
     "type": "none",
     "public": true
   },
+  "status": "release",
   "purchaseUrl": ""
 }

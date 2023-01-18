@@ -1,3 +1,25 @@
+###### 2022.03.08 [v5.1.0]
+
+```
+Android update for API 31
+Update SDK 
+  - Android v18.0.1
+```
+
+###### 2022.02.07 [v5.0.33]
+
+```
+Update installation docs
+Update air package dependencies
+```
+
+###### 2022.01.20 [v5.0.32]
+
+```
+Update documentation to use apm
+Add descriptions for air package parameters
+```
+
 ###### 2021.09.10 [v5.0.31]
 
 ```

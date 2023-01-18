@@ -6,12 +6,12 @@
  * \__,_/_/____/_/ /_/  /_/\__, /_/ 
  *                           / / 
  *                           \/ 
- * http://distriqt.com
+ * https://distriqt.com
  *
  * @brief  		
  * @author 		marchbold
  * @created		17/7/17
- * @copyright	http://distriqt.com/copyright/license.txt
+ * @copyright	https://distriqt.com/copyright/license.txt
  */
 package com.distriqt.test.idfa 
 {
