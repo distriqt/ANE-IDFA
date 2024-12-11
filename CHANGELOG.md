@@ -1,3 +1,15 @@
+###### 2024.12.11 [v6.0.0]
+
+```
+## Major update 
+
+In this update we have moved all the extensions to use the newer gradle dependencies process. 
+
+https://docs.airnativeextensions.com/docs/idfa/migrating
+
+feat(android): move to gradle dependencies
+```
+
 ###### 2023.01.18 [v5.2.0]
 
 ```
